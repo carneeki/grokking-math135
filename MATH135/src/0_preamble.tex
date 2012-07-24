@@ -1,22 +1,17 @@
-% preamble.tex v 2012-07-23 2358AEDT
-%- (02) Document Class and Options -------------------------------------------%
+%- Document Class and Options ------------------------------------------------%
 \documentclass[
-%  pagesize,
   a4paper,
   pdftex,
-%  fontsize=11pt,
 %  draft=true,
   twoside,
 ]{book}
-%
-%\clip(-11.74,-31.43) rectangle (11.68,35.96);
-%- (03) Standard package includes and options --------------------------------%
-%\usepackage{draftwatermark} % draft watermark. Comment these 2 lines in final
-%\SetWatermarkLightness{0.9} %
+
+%- Standard package includes and options -------------------------------------%
 \usepackage{watermark}
 \usepackage{amsmath}       % amsmath & amssymb are almost ALWAYS required.
 \usepackage{amssymb}       %
 \usepackage{gensymb}       % for the degrees circle!
+\usepackage{textcomp}
 %
 %\usepackage{verbatim}     % multiline commenting ( c++ equiv /* ... */ )
 %
@@ -33,43 +28,22 @@
                               % non-[E]PS)
 %                          % valid types: jpeg, png, pdf
 \usepackage{wrapfig}       % the figures themselves
-\usepackage[numbers,
-square,
-longnamesfirst
-]{natbib}                  % prettybib
-\usepackage[pdftex]{hyperref} % clickable TOC and refs
-%\usepackage[all]{xy}      % category theory helpers
-%\xyoption{all}            % category theory helpers
-%\input xy                 % category theory helpers
+\usepackage[numbers,square,longnamesfirst]{natbib}
+                           % prettybib
 \usepackage{pgf,tikz}      % easy graphic thing
-\usepackage{tabularx}    % easy tables
-\usepackage{url}         % easy urls
-\usepackage{multirow}    %
-\usepackage{lipsum}      % autogen placeholder text
-\usepackage{datetime}
-\usepackage{listings}
-%
-%- (04) Custom Definitions and Alterations -----------------------------------%
-\usepackage[T1]{fontenc} % font-doohickey
-%\usepackage{tgadventor}  % font
-%\usepackage[math]{iwona} % font
-\usepackage{kurier} % font
-
 \usetikzlibrary{arrows}
-
-%
-\linespread{1.5} % carneeki@ use approx 150% line spacing just like MaxDesign.
-\hypersetup{
-  % DO NOT CHANGE THESE
-%   pdftitle={\metaTitle},
-%   pdfauthor={\metaAuthorShort},
-%   pdfsubject={\metaSubject},
-%   pdfkeywords={\metaKeywords},
-  pdfcreator={LaTeX},
-  pdfproducer={LaTeX},
-  pdftoolbar=false,
-  % But change these to taste:
-  pdffitwindow=false,   % window fit to page when opened
+\usepackage{tabularx}      % easy tables
+\usepackage{url}           % easy urls
+\usepackage{multirow}      %
+\usepackage{lipsum}        % autogen placeholder text
+\usepackage{datetime}      % insert current date and time
+\usepackage{listings}      % source code listings
+\usepackage[
+  pdftex,
+  pdfauthor={Adam Carmichael},
+  pdfusetitle,
+  pdfsubject={MATH135 - Mathematics IA},
+  pdfkeywords={MATH135, mathematics IA, maths, math},
   pdfstartview={Fit},   % fits the width of the page to the window
                         % all (useful) opts: Fit, FitH, FitV,
   pdfpagelayout=TwoPageLeft,
@@ -79,11 +53,35 @@ longnamesfirst
   citecolor=neekiBlue, % color of links to bibliography
   filecolor=red, % color of file links
   urlcolor=red  % color of external links
-}
-\usepackage[Lenny]{fncychap}
-%\usepackage[Bjornstrup]{fncychap}
+]{hyperref} % clickable TOC and refs
 %
-%- (05) Custom Commands ------------------------------------------------------%
+%- Custom Definitions and Alterations ----------------------------------------%
+\linespread{1.5} % carneeki@ use approx 150% line spacing just like MaxDesign.
+% \hypersetup{
+%   % DO NOT CHANGE THESE
+% %   pdftitle={\metaTitle},
+% %   pdfauthor={\metaAuthorShort},
+% %   pdfsubject={\metaSubject},
+% %   pdfkeywords={\metaKeywords},
+%   pdfcreator={LaTeX},
+%   pdfproducer={LaTeX},
+%   pdftoolbar=false,
+%   % But change these to taste:
+%   pdffitwindow=false,   % window fit to page when opened
+%   pdfstartview={Fit},   % fits the width of the page to the window
+%                         % all (useful) opts: Fit, FitH, FitV,
+%   pdfpagelayout=TwoPageLeft,
+%   pdfnewwindow=true,    % open links in new window
+%   colorlinks=true,      % false = boxed links; true = colored links
+%   linkcolor=neekiRed, % color of internal links
+%   citecolor=neekiBlue, % color of links to bibliography
+%   filecolor=red, % color of file links
+%   urlcolor=red  % color of external links
+% }
+%\usepackage[Lenny]{fncychap}
+\usepackage[Sonny]{fncychap}
+%
+%- Custom Commands -----------------------------------------------------------%
 % MATH
 %\newcommand{\derivative}[1][x]{\frac{\mathrm{d}}{\mathrm{d}#1}}
 \newcommand{\nd}[1]{\,\mathrm{d}#1}
