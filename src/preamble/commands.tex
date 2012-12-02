@@ -66,9 +66,9 @@
 
 \newsavebox{\bigideabox}
 \newenvironment{bigideas}[1]
-{\newcommand\colboxcolor{FFEEEE}%
+{\newcommand\colboxcolor{FFEFEF}%
 \begin{lrbox}{\bigideabox}%
-\begin{minipage}{\dimexpr\columnwidth-2\fboxsep\relax} \section{Big Ideas}\label{#1} } {\end{minipage}\end{lrbox}%
+\begin{minipage}{\dimexpr\columnwidth-2\fboxsep\relax} \textbf{Big Ideas:} } {\end{minipage}\end{lrbox}%
 \begin{center}
   \colorbox[HTML]{\colboxcolor}{\usebox{\bigideabox}}
 \end{center}}
