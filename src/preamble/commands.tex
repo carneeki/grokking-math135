@@ -72,3 +72,12 @@
 \begin{center}
   \colorbox[HTML]{\colboxcolor}{\usebox{\bigideabox}}
 \end{center}}
+
+\newsavebox{\rememberbox}
+\newenvironment{remember}[1]
+{\newcommand\colboxcolor{FFEFEF}%
+\begin{lrbox}{\rememberbox}%
+\begin{minipage}{\dimexpr\columnwidth-2\fboxsep\relax} } {\end{minipage}\end{lrbox}%
+\begin{center}
+  \colorbox[HTML]{\colboxcolor}{\usebox{\rememberbox}}
+\end{center}}
