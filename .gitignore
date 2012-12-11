@@ -28,3 +28,5 @@
 *.mtc0
 *.project
 *.texlipse
+*.table
+*.gnuplot
