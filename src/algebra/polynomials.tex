@@ -4,7 +4,14 @@ Further reading: \texttt{Chen \& Duong ``mtfym02.pdf''}, \url{http://goo.gl/jHCX
 
 \begin{bigideas}{sec:P Big Ideas}
 \begin{itemize}
-  \item 
+  \item An expression of finite length constructed from variables and constants
+        using only addition, subtraction, multiplication and non-negative integer
+        powers.
+  \item The highest power of a variable indicates the polynomials \emph{degree}.
+  \item Determining the \emph{roots} of a poloynomial tells us where a
+        polynomial equation intersects the $x$-axis.
+  \item Polynomials of degree $2$ are called \emph{quadratic}.
+  \item Polynomials of degree $3$ are called \emph{cubic}.
 \end{itemize}
 \end{bigideas}
 
@@ -12,9 +19,67 @@ Further reading: \texttt{Chen \& Duong ``mtfym02.pdf''}, \url{http://goo.gl/jHCX
 \label{sec:P Polynomial Equations}
 Further reading: \texttt{Chen \& Duong ``mtfym02.pdf'' pp 3-4.}
 
+An equation in the form $ax + b = 0$ where $a,b \in \mathbb{F}$ and $a \neq 0$
+is called a \emph{linear equation} or \emph{linear polynomial equation}. It has
+a degree of $1$ (that is, the power of $x$ is $1$). We can determine the value
+of $x$:
+
+\begin{align}
+  ax + b &= 0 \\
+  ax &= -b \\
+  x &= -\frac{b}{x}
+\end{align}
+
+An equation in the form $ax^2 + bx +c = 0$ where $a, b, c \in \mathbb{F}$ are
+constants and $a \neq 0$ is called a \emph{quadratic equation}. To solve such an
+equation we use the \emph{quadratic formula}:
+
+\begin{align}
+  x &= \frac{-b \pm \sqrt{b^2 -4ac}}{2a} \label{eq:quadraticFormula}
+\end{align}
+
+Where $b^2-4ac$ (called the \emph{determinant}) is greater than or equal to $0$.
+This will yield two solutions:
+\begin{align}
+  x &= \frac{-b + \sqrt{b^2 -4ac}}{2a} \nonumber
+\intertext{and}
+  x &= \frac{-b - \sqrt{b^2 -4ac}}{2a} \nonumber
+\end{align}
+However, equation \ref{eq:quadraticFormula} is the most compact and easiest to
+remember.
+
+If the determinant < 0, then it indicates there are no roots exist in the
+real plane ($\mathbb{R}$) and that a complex plane ($\mathbb{C}$) solution
+exists.
+
+For polynomials of degree $3$ or more there is no general formula for a
+solution, however division of polynomials allows us to reduce polynomials of a
+higher degree to a factor and a lesser degree. By iteratively reducing
+polynomials we can eventually find all roots. 
 \section{Polynomial Division}
 \label{sec:P Polynomial Division}
 Further reading: \texttt{Chen \& Duong ``mtfym02.pdf'' pp 4-6.}
+
+Remember long division from primary school? By the time we get to university
+most of us have forgotten. Checkout \url{http://goo.gl/TvDoI} for a Kahn Academy
+video on how to do it using just plain numbers. It is well worth the refresher
+even if you think you can remember how it works.
+
+The following example comes from Purple Math, \url{http://goo.gl/GPi0z}:
+Suppose we wish to divide $\frac{x^2 -9x -10}{x+1}$ 
+\begin{enumerate}
+  \item First write the polynomial in the form:
+  \\ \polylongdiv[stage=1]{x^2 -9x -10}{x+1} \\
+  We will look only at the leading $x$ in the divisor and the leading $x^2$ in
+  the numerator. 
+  \item We want to divide the $x^2$ in the numerator by the $x$ in the denominator:
+  \\ \polylongdiv[stage=2]{x^2 -9x -10}{x+1} \\
+  $\frac{x^2}{x} = x$ so we write the resulting $x$ above the line. 
+  \item Now we have to take care of the $+1$ in the denominator. Using the $x$
+  from our result above the line, we multiply the result by the denominator
+  $x+1$
+  \\ \polylongdiv[stage=3]{x^2 -9x -10}{x+1} \\
+\end{enumerate}
 
 \section{Polynomial Roots}
 \label{sec:P Polynomial Root}
