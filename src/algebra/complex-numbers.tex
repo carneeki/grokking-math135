@@ -6,28 +6,103 @@ Further reading: \texttt{Chris Cooper ``LINALG03 Complex Numbers''}, \url{http:/
 
 \begin{bigideas}{sec:CN Big Ideas}
 \begin{itemize}
-  \item 
+  \item Complex numbers are created to solve what would otherwise be unsolveable
+  equations because we cannot square any number in $\mathbb{R}$ to get a
+  negative number.
+  \item Complex numbers are made of two parts, a real part and an imaginary part
+  (i) which, when combined are called a \emph{complex conjugate}.
+  \item A complex conjugate resembles the form:\\
+  \begin{align}
+    a + b\text{i} & \quad | \quad a,b \in \mathbb{R} 
+  \end{align}
+  \item 4 simple rules exist for adding, subtracting, multiplying and dividing
+  complex numbers.
+  \item Complex numbers fall into their own special set of numbers $\mathbb{C}$.
 \end{itemize}
 \end{bigideas}
+
+When we square any number in the real number plane, we \emph{always} get a
+postive number. This begs the question, how do we square root a negative number?
+Previously, a problem such as
+\begin{align}
+  i^2 + 1 &= 0 \\
+  i^2     &= -1 \label{eq:i2}
+\intertext{Would be left with ``no real solution'' as an answer in a paper.
+While this is true, we \textbf{can in fact find a solution}. It just happens to
+be outside of the real plane and is defined exactly as:}
+  i &= \sqrt{-1}
+\end{align}
+\begin{align}
+\intertext{This gives rise to a very interesting property\ldots What if we were to square
+i? We already know, the answer from equation \ref{eq:i2}}
+  i^2 &= -1
+\intertext{What about if we cube i?}
+  i^3 &= i * i^2 \\
+      &= i * -1 \\
+      &= -i \label{eq:i3}
+\intertext{What if we go again?}
+  i^4 &= i^2 * i^2 \\
+      &= -1 * -1 \\
+      &= 1 \\
+\intertext{And again?}
+  i^5 &= i * i^4 \\
+      &= i * 1 \\
+      &= i
+\end{align}
+This repetitive behaviour is called a \emph{ring} and is cyclic for every $4^{th}$
+power of $i$. Remember this fact, it will become useful in later trigonometry.
+
+\begin{remember}{Ring behaviour of powers of $i$}
+\begin{align}
+  i^0 &= 1 \\
+  i^1 &= i \\
+  i^2 &= -1 \\
+  i^3 &= -i \\
+  i^4 &= 1 \\
+  i^5 &= i \\
+  i^6 &= -1 \\
+  i^7 &= -i \\
+  i^8 &= 1
+\end{align}
+\end{remember}
+Why does this work so neatly? Consider our basic index laws and apply to numbers
+between 0 and 3 inclusive:
+\begin{align}
+  i^{a + b} &= i^a * i^b \quad | \quad a,b \in [0,3]
+\end{align}
 
 \section{Arithmetic of Complex Numbers}
 \label{sec:CN Arithmetic of Complex Numbers}
 Further reading: \texttt{Chen \& Duong ``em09-cn.pdf'' pp 1-2.} \\
 Further reading: \texttt{Chen \& Duong ``fyc01.pdf'' pp 6-8.}
 
-\subsection{Addition Rule}
-\label{subsec:CN Arithmetic of Complex Numbers - Addition}
+\begin{remember}{Addition Rule}
+\begin{align}
+  (a + b\text{i}) + (c + d\text{i}) &= (a + c) + (b + d)\text{i}
+\end{align}
+\end{remember}
 
-\subsection{Subtraction Rule}
-\label{subsec:CN Arithmetic of Complex Numbers - Subtraction}
+\begin{remember}{Subtraction Rule}
+\begin{align}
+  (a + b\text{i}) - (c + d\text{i}) &= (a - c) + (b - d)\text{i}
+\end{align}
+\end{remember}
 
-\subsection{Multiplication Rule}
-\label{subsec:CN Arithmetic of Complex Numbers - Multiplication}
+\begin{remember}{Multiplication Rule}
+\begin{align}
+  (a + b\text{i}) \cdot (c + d\text{i}) &= (ac - bd) + (ad + bc)\text{i}
+\end{align}
+\end{remember}
 
-\subsection{Division Rule}
-\label{subsec:CN Arithmetic of Complex Numbers - Division}
-
-\section{Polar Co-ordinates}
-\label{sec:CN Polar Co-ordinates}
-Further reading: \texttt{Chen \& Duong ``em09-cn.pdf'' pp 3-4.} \\
-Further reading: \texttt{Chen \& Duong ``fyc01.pdf'' pp 8-11.}
+\begin{remember}{Division Rule}
+\begin{align}
+  \frac{(a + b\text{i})}{(c + d\text{i})} &= x + y\text{i} \quad | \quad x,y \in \mathbb{R}
+  \intertext{such that}
+  a + b\text{i} = (c + d\text{i})(x+y\text{i}) & = (cx - dy)(cy+dx)\text{i}
+  \intertext{It follows that}
+  a &= cx - dy \\
+  b &= cy + dx
+  \intertext{With the solution:}
+  x = \frac{ac + bd}{c^2 + d^2} & \quad \text{and} \quad y = \frac{bc -ad}{c^2+d^2}
+\end{align}
+\end{remember}
