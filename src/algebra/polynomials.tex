@@ -67,8 +67,10 @@ even if you think you can remember how it works.
 
 There is a simple recursive algorithm for polynomial long division, consisting
 of 3 steps which are repeated until either a divide by zero, or a remainder
-occurs.
+occurs.\footnote{I call this algorithm Jaye's Algorithm because Jaye, a 9 year
+old at the time, helped me memorise it a few weeks before writing it down.}
 
+\begin{remember}{Jaye's Algorithm}
 \begin{enumerate}
   \item Divide the next term numerator (the part under the long line) by the
   first term in the denominator. Write the result above the long line.
@@ -77,6 +79,7 @@ occurs.
   \item Perform a simple addition, carrying anything down below the line.
 \end{enumerate}
 Rinse and repeat these 3 steps underneath your new long line.
+\end{remember}
 
 The following example comes from Purple Math, \url{http://goo.gl/GPi0z}:
 Suppose we wish to divide $\frac{x^2 -9x -10}{x+1}$:
