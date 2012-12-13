@@ -17,6 +17,7 @@
 *.nlo
 *.out
 *.pdf
+!out/MATH135.pdf
 *.pdfsync
 *.ps
 *.snm
