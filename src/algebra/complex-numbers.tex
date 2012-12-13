@@ -1,23 +1,30 @@
-\chapter{Complex Numbers \& The Complex Plane}
+\chapter{Complex Numbers}
 \label{chap:CN}
-Further reading: \texttt{Chen \& Duong ``em09-cn.pdf''}, \url{http://goo.gl/C5rfq} \\
-Further reading: \texttt{Chen \& Duong ``fyc01.pdf''}, \url{http://goo.gl/eOE7y} \\
-Further reading: \texttt{Chris Cooper ``LINALG03 Complex Numbers''}, \url{http://goo.gl/N85uO}
-
+Further reading: \texttt{Chen \& Duong ``em09-cn.pdf''}, \, \url{http://goo.gl/C5rfq} \\
+Further reading: \texttt{Chen \& Duong ``fyc01.pdf''}, \, \url{http://goo.gl/eOE7y} \\
+Further reading: \texttt{Chris Cooper ``LINALG03 Complex Numbers''}, \, \url{http://goo.gl/N85uO}
 \begin{bigideas}{sec:CN Big Ideas}
 \begin{itemize}
   \item Complex numbers are created to solve what would otherwise be unsolveable
   equations because we cannot square any number in $\mathbb{R}$ to get a
   negative number.
   \item Complex numbers are made of two parts, a real part and an imaginary part
-  (i) which, when combined are called a \emph{complex conjugate}.
-  \item A complex conjugate resembles the form:\\
+  (i).
+  \item i exhibits ring-like behaviour when raised to powers.
+  \item A complex number resembles the form:\\
   \begin{align}
-    a + b\text{i} & \quad | \quad a,b \in \mathbb{R} 
+    z = x + y\text{i} & \quad | \quad x,y \in \mathbb{R} 
   \end{align}
-  \item 4 simple rules exist for adding, subtracting, multiplying and dividing
+  \item Rules exist for adding, subtracting, multiplying and dividing
   complex numbers.
   \item Complex numbers fall into their own special set of numbers $\mathbb{C}$.
+  \item Complex numbers have a ``twin'' called a \emph{complex conjugate},
+  suppose we have:
+  \begin{align}
+    z = (x + y\text{i}) \nonumber
+    \intertext{then the conjugate is:}
+    \overline{z} = (x - y\text{i}) \nonumber
+  \end{align}
 \end{itemize}
 \end{bigideas}
 
@@ -106,3 +113,41 @@ Further reading: \texttt{Chen \& Duong ``fyc01.pdf'' pp 6-8.}
   x = \frac{ac + bd}{c^2 + d^2} & \quad \text{and} \quad y = \frac{bc -ad}{c^2+d^2}
 \end{align}
 \end{remember}
+
+\section{Complex Conjugates}
+
+Complex numbers have a ``twin'' called a \emph{complex conjugate}, suppose we
+have:
+\begin{align}
+  z = (x + y\text{i}) \nonumber
+  \intertext{then the conjugate is:}
+  \overline{z} = (x - y\text{i}) \nonumber
+\end{align}
+
+Conjugates exhibit special properties, they are:
+\begin{align}
+  \overline{z + w} &= \overline{z} + \overline{w} \label{eq:complexconjugadd}\\
+  \intertext{and}
+  \overline{z\cdot w} &= \overline{z} \cdot \overline{w} \label{eq:complexconjugmult}
+\end{align}
+
+Proof of equation \ref{eq:complexconjugadd} is as follows:
+\begin{align}
+  \text{Let:}~z &= x + y\text{i} \quad | \quad x,y \in \mathbb{R} \\
+  \text{Let:}~w &= u + v\text{i} \quad | \quad u,v \in \mathbb{R} \\
+  \overline{z + w} &= \overline{(x+u)+(y+v)\text{i}} \\
+    &= (x+u)-(y+v)\text{i} \\
+    &= (x-y\text{i}) + (u-v\text{i}) \\
+    &= \overline{z} + \overline{w}
+\end{align}\qedbitches
+
+Proof of equation \ref{eq:complexconjugmult} is as follows:
+\begin{align}
+  \text{Let:}~z &= x + y\text{i} \quad | \quad x,y \in \mathbb{R} \\
+  \text{Let:}~w &= u + v\text{i} \quad | \quad u,v \in \mathbb{R} \\
+  \overline{z \cdot w} &= \overline{(x+y\text{i})(u+v\text{i})} \\
+    &= \overline{(xu-yv)+(xv+yu)\text{i}}\\
+    &= (xu-yv)-(xv+yu)\text{i}\\
+    &= (x - y\text{i})(u-v\text{i}) \\
+    &= \overline{z} \cdot \overline{w}
+\end{align}\qedbitches
