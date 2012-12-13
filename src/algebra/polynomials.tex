@@ -122,6 +122,22 @@ to divide $\frac{x^2 +9x +14}{x +7}$
   \\ \polylongdiv[stage=7]{x^2 +9x +14}{x +7}
 \end{enumerate}
 
+Sometimes there are tricky ones where you might have some terms with a
+coefficient of zero, such as $\frac{2x^3 -9x^2 +15}{2x -5}$. Here $x^1$ does not
+appear as a part of numerator, but we can rewrite it as
+$\frac{2x^3 -9x^2 +0x +15}{2x -5}$. With problems such as these, it is easiest
+to keep your writing neat and in columns. Where you might see $0x$ you can just
+as easily substitute a bit of whitespace. \\[0.5cm]
+\polylongdiv{2x^3 -9x^2 +15}{2x -5}
+This example also shows a remainder of $-10$. The final answer could also be
+written as one of two ways, either:
+\begin{enumerate}
+  \item $x^2 -2x -5 - \left(\frac{10}{2x -5}\right)$ -- or --
+  \item $x^2 -2x -5$ r $10$
+\end{enumerate}
+Though the first method is probably better as it is less confusing sans the
+letter ``r''.
+
 \section{Polynomial Roots}
 \label{sec:P Polynomial Root}
 Further reading: \texttt{Chen \& Duong ``mtfym02.pdf'' pp 6-8.}
@@ -144,9 +160,46 @@ Further reading: \texttt{Chen \& Duong ``mtfym02.pdf'' pp 8-11.}
 
 \section{Greatest Common Divisor}
 \label{sec:P Greatest Common Divisor}
-Further reading: \texttt{Chen \& Duong ``mtfym02.pdf'' pp 12-13.}
+Further reading: \texttt{Chen \& Duong ``mtfym02.pdf'' pp 12-13.} \\
+Further reading: \texttt{Kenneth H ROSEN ``Discrete Mathematics and Its
+Applications 6e'', Chapter Primes and Greatest Common Divisors, pp 210-227.}
+\begin{remember}{Definition}
+  Let $a$ and $b$ be integers no both zero. The largest integer $d$ such that
+  $d | a$\footnote{read as $d$ divides $a$} and $d | b$ is called the greatest
+  common divisor of $a$ and $b$, denoted as gcd($a$,$b$).
+\end{remember}
+
+There are many ways to determine the gcd of two numbers, including a products of
+primes and Euclid's algorithm. Euclid's algorithm is by far the most efficient
+and is discussed in the next subsection.
 
 \subsection{Euclid's Algorithm}
 \label{sec:P Euclid's Algortihm}
 Further reading: \texttt{Chen \& Duong ``mtfym02.pdf'' pp 12-13.}\\
-Further reading: \texttt{Rosen ``Discrete Mathematics and Its Applications'', 6e, pp 227-229}
+Further reading: \texttt{Rosen ``Discrete Mathematics and Its Applications'', 6e, pp 227-229}\\[0.5cm]
+
+Euclid's algorithm is recursive, and consists of $2$ steps:
+\begin{remember}{Euclid's algorithm}{
+\begin{enumerate}
+  \item Divide the larger of the two numbers by the smaller of the two numbers,
+  and add the remainder onto the end.
+  \item Find the gcd of the remainder and the smaller of the two original numbers.
+\end{enumerate}
+
+In summary:
+\begin{align}
+  \text{Let} ~ a &= bq + r \quad | \quad a,b,q,r \in \mathbb{Z} \quad \text{Then gcd($a$,$b$)} = \text{gcd($b$,$r$)}
+\end{align}
+}
+\end{remember}
+
+The following example comes from ROSEN p 229:
+
+\begin{align}
+  662 &= 414 \cdot 1 + 248 \\
+  414 &= 248 \cdot 1 + 166 \\
+  248 &= 166 \cdot 1 + 82 \\
+  166 &= 82 \cdot 2 + 2 \\
+  82 &= 2 \cdot 41
+\end{align}
+2 is the last non-zero remainder, therefore gcd(414,662) = 2.
