@@ -1,8 +1,89 @@
 \chapter{Complex Plane}
 \label{chap:CP}
+Further reading: \texttt{Chen \& Duong ``em09-cn.pdf'' pp 3-4.} \\
+Further reading: \texttt{Chen \& Duong ``fyc01.pdf'' pp 8-11.}
 
 \begin{bigideas}{sec:CP Big Ideas}
 \begin{itemize}
-  \item 
+  \item Complex numbers take the form $(a + b\text{i})$.
+  \item We can represent $x$ and $y$ ordinates in the real plane ($\mathbb{R}^2$)
+  in the form $(x + y\text{i})$.
+  \item $x$ is called the real part (represented by $\Re[z]$)
+  \item $y$ is called the imaginary part (represented by $\Im[z]$)
+  \item Plotting these on an $x,y$ axis is called an \emph{Argand diagram}.
+  \item Polar coordinates use two variables, $(r,\theta)$ to describe a point.
+  \item $\theta$ is an angle measured in radians
+  \item $r$ is a length. 
+  \item Conversion between polar coordinates and Cartesian coordinates is done
+  using Pythagoras theorem or trigonmetry.
 \end{itemize}
 \end{bigideas}
+
+\section{Argand Diagrams}
+\label{sec:CP Argand Diagrams}
+Complex numbers consist of two parts, such as $z = (x + y\text{i})$. Suppose we
+were to plot both $x$ and $y$ ordinates on an $x,y$ plane as seen in figure
+\ref{fig:argand}.
+\begin{figure}[!htb]
+\label{fig:argand}
+\begin{center}
+\begin{tikzpicture}
+  \draw[very thin, color=black!10] (-1.5, -1.5) grid (6.5, 2.5);
+  \draw[<->] (-1.5,0) -- (6.5,0);
+  \draw[<->] (0,-1.5) -- (0,2.5);
+  
+  \draw[dashed,color=nicered] (3,1) -- (3,-0.5);
+  \draw[dashed,color=nicered] (-0.5,1) -- (3,1);
+  \draw[color=nicered,fill=nicered] (3,1) circle(0.7mm);
+  \draw node at (4,0.5) {$z = x + y\text{i}$};
+  \draw node at (2.8,-0.25) {$x$};
+  \draw node at (-0.25,0.5) {$y$};
+\end{tikzpicture}
+\end{center}
+\caption{Argand Diagram, $z = x + y\text{i}$}
+\end{figure}
+
+Following our addition rules in section \ref{sec:CN Arithmetic of Complex
+Numbers} (page \pageref{sec:CN Arithmetic of Complex Numbers}), we can add, two
+complex numbers as seen in figure \ref{fig:argandaddition}.
+\begin{figure}[!htb]
+\label{fig:argandaddition}
+\begin{center}
+\begin{tikzpicture}
+  \draw[very thin, color=black!10] (-1.5, -1.5) grid (6.5, 6.5);
+  \draw[<->] (-1.5,0) -- (6.5,0);
+  \draw[<->] (0,-1.5) -- (0,6.5);
+  
+  \draw[dashed,color=nicered] (3,1) -- (3,-0.5);
+  \draw[dashed,color=nicered] (-0.5,1) -- (3,1);
+  \draw[color=nicered,fill=nicered] (3,1) circle(0.7mm);
+  \draw node at (4,0.5) {$z = x + y\text{i}$};
+  \draw node at (2.8,-0.5) {$x$};
+  \draw node at (-0.5,0.5) {$y$};
+  
+  \draw[dashed,color=neekiBlue] (1,3) -- (1, -0.5);
+  \draw[dashed,color=neekiBlue] (-0.5,3) -- (1, 3);
+  \draw[color=neekiBlue,fill=neekiBlue] (1,3) circle(0.7mm);
+  \draw node at (2,2.5) {$w = u + v\text{i}$};
+  \draw node at (0.8,-0.25) {$u$};
+  \draw node at (-0.25,2.5) {$v$};
+  
+  \draw[dashed,color=neekiGreen] (5,5) -- (5, -0.5);
+  \draw[dashed,color=neekiGreen] (-0.5,5) -- (5, 5);
+  \draw[color=neekiGreen,fill=neekiGreen] (5,5) circle(0.7mm);
+  \draw node at (5.5,4.5) {$z + w$};
+  \draw node at (4.5,-0.25) {$u+x$};
+  \draw node at (-0.5,4.5) {$v+y$};
+  
+  \draw[dashed,color=neekiBlue!50] (5,5) -- (1, 3);
+  \draw[dashed,color=neekiBlue!50] (0,0) -- (1, 3);
+  \draw[dashed,color=nicered!50] (5,5) -- (3, 1);
+  \draw[dashed,color=nicered!50] (0,0) -- (3, 1);
+  \draw[dashed,color=neekiGreen!50] (5,5) -- (0, 0);
+\end{tikzpicture}
+\end{center}
+\caption{Addition of two complex numbers in an Argand Diagram}
+\end{figure}
+
+\section{Polar Co-ordinates}
+\label{sec:CN Polar Co-ordinates}
