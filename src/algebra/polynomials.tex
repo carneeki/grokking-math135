@@ -65,20 +65,58 @@ most of us have forgotten. Checkout \url{http://goo.gl/TvDoI} for a Kahn Academy
 video on how to do it using just plain numbers. It is well worth the refresher
 even if you think you can remember how it works.
 
+There is a simple recursive algorithm for polynomial long division, consisting
+of 3 steps which are repeated until either a divide by zero, or a remainder
+occurs.
+
+\begin{enumerate}
+  \item Divide the next term numerator (the part under the long line) by the
+  first term in the denominator. Write the result above the long line.
+  \item Multiply the result by the denominator and then by $-1$. Write the
+  result underneath the term(s) operated on, underlining any new terms.
+  \item Perform a simple addition, carrying anything down below the line.
+\end{enumerate}
+Rinse and repeat these 3 steps underneath your new long line.
+
 The following example comes from Purple Math, \url{http://goo.gl/GPi0z}:
-Suppose we wish to divide $\frac{x^2 -9x -10}{x+1}$ 
+Suppose we wish to divide $\frac{x^2 -9x -10}{x+1}$:
 \begin{enumerate}
   \item First write the polynomial in the form:
-  \\ \polylongdiv[stage=1]{x^2 -9x -10}{x+1} \\
+  \\ \polylongdiv[stage=1]{x^2 -9x -10}{x+1} \\[0.5cm]
   We will look only at the leading $x$ in the divisor and the leading $x^2$ in
   the numerator. 
-  \item We want to divide the $x^2$ in the numerator by the $x$ in the denominator:
-  \\ \polylongdiv[stage=2]{x^2 -9x -10}{x+1} \\
-  $\frac{x^2}{x} = x$ so we write the resulting $x$ above the line. 
-  \item Now we have to take care of the $+1$ in the denominator. Using the $x$
-  from our result above the line, we multiply the result by the denominator
-  $x+1$
-  \\ \polylongdiv[stage=3]{x^2 -9x -10}{x+1} \\
+  \item We want to divide the $x^2$ in the numerator by the $x$ in the
+  denominator. $\frac{x^2}{x} = x$ so we write the resulting $x$ above the line.
+  \\ \polylongdiv[stage=2]{x^2 -9x -10}{x+1}
+  \item Now we must take care of the $+1$ in the denominator. Multiply the
+  result above the line by $-1$ and multiply again by the denominator:
+  \\ \polylongdiv[stage=3]{x^2 -9x -10}{x+1}
+  \item Perform the subtraction as we would a normal sum carrying anything to
+  the right down:
+  \\ \polylongdiv[stage=4]{x^2 -9x -10}{x+1}
+  \item Divide $-10x -10$ by $x$ goes $-10$ times, so write $-10$ above the line
+  \\ \polylongdiv[stage=5]{x^2 -9x -10}{x+1} 
+  \item Multiply $-10$ by $-1$ and then again by $(x+1)$:
+  \\ \polylongdiv[stage=7]{x^2 -9x -10}{x+1}
+  \item \textbf{The zero means there is no remainder, and we are done.}
+\end{enumerate}
+
+Another example of polynomial long division, taken from the same site as above,
+to divide $\frac{x^2 +9x +14}{x +7}$
+\begin{enumerate}
+  \item Write out in the standard form:
+  \\ \polylongdiv[stage=1]{x^2 +9x +14}{x +7} \\
+  \item Next divide $\frac{x^2}{x}=x$ and write above the line.
+  \\ \polylongdiv[stage=2]{x^2 +9x +14}{x +7} \\
+  \item Multiply $-x$ by $x+7$ and write underneath:
+  \\ \polylongdiv[stage=3]{x^2 +9x +14}{x +7} \\
+  \item Perform the addition:
+  \\ \polylongdiv[stage=4]{x^2 +9x +14}{x +7} \\
+  \item Divide $\frac{2x}{x}=2$
+  \\ \polylongdiv[stage=5]{x^2 +9x +14}{x +7} \\
+  \item Multiply $-2$ by $x+7$ and write underneath, and we can see there is no
+  remainder.
+  \\ \polylongdiv[stage=7]{x^2 +9x +14}{x +7}
 \end{enumerate}
 
 \section{Polynomial Roots}
