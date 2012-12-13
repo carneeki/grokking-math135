@@ -72,8 +72,8 @@ complex numbers as seen in figure \ref{fig:argandaddition}.
   \draw[dashed,color=neekiGreen] (-0.5,5) -- (5, 5);
   \draw[color=neekiGreen,fill=neekiGreen] (5,5) circle(0.7mm);
   \draw node at (5.5,4.5) {$z + w$};
-  \draw node at (4.5,-0.25) {$u+x$};
-  \draw node at (-0.5,4.5) {$v+y$};
+  \draw node at (4.5,-0.25) {$x+u$};
+  \draw node at (-0.5,4.5) {$y+v$};
   
   \draw[dashed,color=neekiBlue!50] (5,5) -- (1, 3);
   \draw[dashed,color=neekiBlue!50] (0,0) -- (1, 3);
@@ -84,6 +84,14 @@ complex numbers as seen in figure \ref{fig:argandaddition}.
 \end{center}
 \caption{Addition of two complex numbers in an Argand Diagram}
 \end{figure}
+The working for \ref{fig:argandaddition} is as follows:
+\begin{align}
+  \text{Let:}~ z &= x + y\text{i} \\
+  \text{Let:}~ w &= u + v\text{i}
+  \intertext{By the addition rule:}
+  (x + y\text{i}) + (u + v\text{i}) &= x + u + y\text{i} + v\text{i} \\
+                                    &= (x + u) + (y + v)\text{i}
+\end{align}
 
 \section{Polar Co-ordinates}
 \label{sec:CN Polar Co-ordinates}
