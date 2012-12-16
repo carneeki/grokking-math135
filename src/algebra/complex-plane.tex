@@ -13,7 +13,7 @@ Further reading: \texttt{Chen \& Duong ``fyc01.pdf'' pp 8-11.}
   \item Plotting these on an $x,y$ axis is called an \emph{Argand diagram}.
   \item Polar coordinates use two variables, $(r,\theta)$ to describe a point.
   \item $\theta$ is an angle measured in radians
-  \item $r$ is a length. 
+  \item $r$ is a length.
   \item Conversion between polar coordinates and Cartesian coordinates is done
   using Pythagoras theorem or trigonmetry.
 \end{itemize}
@@ -25,29 +25,35 @@ Complex numbers consist of two parts, such as $z = (x + y\text{i})$. Suppose we
 were to plot both $x$ and $y$ ordinates on an $x,y$ plane as seen in figure
 \ref{fig:argand}.
 \begin{figure}[!htb]
-\label{fig:argand}
 \begin{center}
 \begin{tikzpicture}
-  \draw[very thin, color=black!10] (-1.5, -1.5) grid (6.5, 2.5);
+  \draw[very thin, color=black!10] (-1.5, -2.5) grid (6.5, 2.5);
   \draw[<->] (-1.5,0) -- (6.5,0);
-  \draw[<->] (0,-1.5) -- (0,2.5);
+  \draw[<->] (0,-2.5) -- (0,2.5);
   
-  \draw[dashed,color=nicered] (3,1) -- (3,-0.5);
+  \draw[dashed,color=nicered] (3,1) -- (3,0);
   \draw[dashed,color=nicered] (-0.5,1) -- (3,1);
   \draw[color=nicered,fill=nicered] (3,1) circle(0.7mm);
   \draw node at (4,0.5) {$z = x + y\text{i}$};
   \draw node at (2.8,-0.25) {$x$};
   \draw node at (-0.25,0.5) {$y$};
+  
+  \draw[dashed,color=neekiBlue] (3,-1) -- (3,0);
+  \draw[dashed,color=neekiBlue] (-0.5,-1) -- (3,-1);
+  \draw[color=neekiBlue,fill=neekiBlue] (3,-1) circle(0.7mm);
+  \draw node at (4,-0.5) {$\overline{z} = x - y\text{i}$};
+  \draw node at (-0.25,-0.5) {$-y$};
+  
 \end{tikzpicture}
 \end{center}
-\caption{Argand Diagram, $z = x + y\text{i}$}
+\caption{Argand Diagram, $z$, and complex conjugate $\overline{z}$.}
+\label{fig:argand}
 \end{figure}
 
 Following our addition rules in section \ref{sec:CN Arithmetic of Complex
 Numbers} (page \pageref{sec:CN Arithmetic of Complex Numbers}), we can add, two
 complex numbers as seen in figure \ref{fig:argandaddition}.
 \begin{figure}[!htb]
-\label{fig:argandaddition}
 \begin{center}
 \begin{tikzpicture}
   \draw[very thin, color=black!10] (-1.5, -1.5) grid (6.5, 6.5);
@@ -83,8 +89,10 @@ complex numbers as seen in figure \ref{fig:argandaddition}.
 \end{tikzpicture}
 \end{center}
 \caption{Addition of two complex numbers in an Argand Diagram}
+\label{fig:argandaddition}
 \end{figure}
-The working for \ref{fig:argandaddition} is as follows:
+
+\noindent The working for \ref{fig:argandaddition} is as follows:
 \begin{align}
   \text{Let:}~ z &= x + y\text{i} \\
   \text{Let:}~ w &= u + v\text{i}
@@ -93,5 +101,125 @@ The working for \ref{fig:argandaddition} is as follows:
                                     &= (x + u) + (y + v)\text{i}
 \end{align}
 
-\section{Polar Co-ordinates}
-\label{sec:CN Polar Co-ordinates}
+\section{Polar Coordinates}
+\label{sec:CP Polar Coordinates}
+\begin{enumerate}
+  \item Polar coordinates use two variables, $(r,\theta)$ to describe a point.
+  \item $r$ is a length.
+  \item $\theta$ is an angle
+\end{enumerate}
+
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+  \draw[very thin, color=black!10] (-3.5, -4.5) grid (2.5, 2.5);
+  \coordinate (o) at (0,0);
+  \draw[color=black,fill=black] (o) circle(0.7mm);
+  \draw[->] (o) -- (2.5,0);
+  
+  \draw[dashed,color=nicered] (o)+(1.5,0) arc (0:60:1.5);
+  \draw[color=nicered] (o) -- ++(60:2);
+  \draw[color=nicered,fill=nicered] ++(60:2) circle(0.7mm)
+      node[right] {$P = (r,\theta)$};
+  
+  \draw[dashed,color=neekiBlue] (o)+(1,0) arc (0:240:1);
+  \draw[color=neekiBlue] (o) -- ++(240:4);
+  \draw[color=neekiBlue,fill=neekiBlue] ++(240:4) circle(0.7mm)
+      node[right] {$Q = (2r,4\theta)$};
+\end{tikzpicture}
+\end{center}
+\caption{Two polar coordinates. Note how $r$, the radius, is specified first
+followed by the angle.}
+\label{fig:polarcoordinates}
+\end{figure}
+
+\begin{align}
+\intertext{Converting between polar coordinates and cartesian coordinates is a
+matter of applying some trigonometry but is summarised as follows:}
+  x &= r\cos\theta \\
+  y &= r\sin\theta
+\intertext{Iff $r \geq 0$ and $-\pi \leq \theta < \pi$ we can also convert to
+Cartesian coordinates as follows:}
+  r &= \sqrt{x^2 + y^2} \\
+  \theta &= \left \{
+    \begin{array}{l l}
+      \arctan\left(\frac{y}{x}\right) & \quad \text{if $x > 0$} \\
+      \arctan\left(\frac{x}{y}\right) + \pi & \quad \text{if $x < 0$ and $y \geq 0$} \\
+      \arctan\left(\frac{y}{x}\right) - \pi & \quad \text{if $x < 0$ and $y < 0$} \\
+       \frac{\pi}{2} & \quad \text{if $x = 0$ and $y > 0$} \\
+      -\frac{\pi}{2} & \quad \text{if $x = 0$ and $y < 0$} \\
+      0              & \quad \text{if $x = 0$ and $y = 0$} \\
+    \end{array}
+    \right.
+\end{align}
+
+\section{Modulus}
+\label{sec:CP Modulus}
+
+Consider diagram \ref{fig:modulus}:
+
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+  \draw[very thin, color=black!10] (-1.5, -0.5) grid (6.5, 3.5);
+  \draw[<->] (-0.5,0) -- (6.5,0);
+  \draw[<->] (0,-0.5) -- (0,3.5);
+  
+  \draw[dashed,color=nicered] (4,3) -- (4,0);
+  \draw[dashed,color=nicered] (-0.5,3) -- (4,3);
+  \draw[color=nicered,fill=nicered] (4,3) circle(0.7mm);
+  \draw (4,2.5) node[right] {$z = x + y\text{i}$};
+  \draw node at (3.8,-0.25) {$x$};
+  \draw node at (-0.25,2.5) {$y$};
+  
+  \draw[color=neekiBlue] (0,0) -- (4,3);
+  \draw[color=neekiBlue] (1.5,0.75) node[right] {$\lvert z \rvert = \sqrt{x^2 + y^2}$};
+  
+\end{tikzpicture}
+\end{center}
+\caption{The modulus, $\lvert z \rvert$, is given by Pythagoras' theorem}
+\label{fig:modulus}
+\end{figure}
+
+\section{Euler's Formula}
+\label{sec:CP Euler's Formula}
+\begin{remember}{Euler's Formula}
+Euler was this dude who had a formula:
+\begin{align}
+  e^{i\theta} & = \cos\theta + i\sin\theta \label{eq:eulerformula}
+\end{align}
+\end{remember}
+
+\noindent In the context of the unit circle, projected onto an Argand diagram,
+it starts to form an important relationship shown in figure \ref{fig:EulerFormulaOnArgand}.
+
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}[scale=3]
+  \draw[very thin, color=black!10] (-1.5, -1.5) grid (1.5, 1.5);
+  \draw[->](0,0) -- (0,1.5)
+      node[left] {$\Im$};
+      
+  \draw[->](0,0) -- (1.5,0)
+      node[below] {$\Re$};
+  
+  \draw (0,0) circle(1);
+  
+  \draw[dashed,color=neekiBlue] (o)+(0.25,0) arc (0:60:0.25);
+  \draw[->,color=neekiBlue] (o) -- ++(60:1);
+  \draw[color=neekiBlue,fill=neekiBlue] ++(60:1) circle(0.03);
+  \draw[color=nicered] node at (0.125,0.06125) {$\theta$};
+  
+  \draw[dashed,color=nicered] ++(60:1) -- (0.5,0);
+  \draw[color=nicered] (0.5,0.5) node[right] {$i\sin\theta$};
+  \draw[dashed,color=nicered] ++(60:1) -- (0,0.87);
+  \draw[color=nicered] (0.25,0.87) node[below] {$\cos\theta$};
+  
+  \draw (1.1,0) node [below] {$1$};
+  \draw (0,1.1) node [left] {$i$};
+  
+\end{tikzpicture}
+\end{center}
+\caption{Euler's Formula plotted on an Argand diagram}
+\label{fig:EulerFormulaOnArgand}
+\end{figure}
