@@ -4,13 +4,46 @@ Further reading: \texttt{Chen \& Duong ``fyc01.pdf''}, \url{http://goo.gl/eOE7y}
 
 \begin{bigideas}{sec:dMT Big Ideas}
 \begin{itemize}
-  \item 
+  \item de Moivre was this dude who had a theorem named after him, though this
+  specific theorem was never actually mentioned in his work.
+  \item Derived from Euler's Formula (see section \ref{sec:CP Euler's Formula} p
+  \pageref{sec:CP Euler's Formula}).
 \end{itemize}
 \end{bigideas}
 
 \section{de Moivre's Theorem}
 \label{sec:dMT dMT}
 Further reading: \texttt{Chen \& Duong ``fyc01.pdf'' pp 12.}
+
+\begin{align}
+  e^{i\theta} &= \cos\theta + i\sin\theta
+  \intertext{apply an index law:}
+  \left(e^{i\theta}\right)^{n} &= e^{in\theta} \quad \text{iff} \quad n \in \mathbb{Z}
+  \intertext{then by Euler's formula:}
+  e^{i(n\theta)} &= \cos\theta + i\sin(n\theta)
+\end{align}
+
+\noindent Proof that this follows for all integers can be done through a proof
+by induction. The following proof comes courtesy of Wikipedia,
+\url{http://goo.gl/K8nRR}.
+
+\begin{align}
+  (\cos\theta + i\sin\theta)^{n} &= \cos(n\theta) + i\sin(n\theta) \quad | \quad n \in \mathbb{Z} \\
+  \intertext{For $n>0$, we proceed by principle of mathematical induction. S(1)
+  is true. For $S(k)$ is true where $k \in \mathbb{N}$. That is we assume:}
+  (\cos\theta + i\sin\theta)^{k} &= \cos(k\theta) + i\sin(k\theta)
+  \intertext{Consider $S(k+1)$:}
+  (\cos\theta + i\sin\theta)^{k+1} &= (\cos(\theta) + i\sin(\theta))^k(\cos\theta + i\sin\theta) \\
+    &= \left[ \cos(k\theta) + i\sin(k\theta) \right](\cos\theta + i\sin\theta) \\
+    &= \cos(k\theta)\cos\theta - \sin(k\theta)\sin\theta + i\left[\cos(k\theta)\sin(\theta) + \sin(k\theta)\cos\theta \right] \\
+    &= \cos\left[(k+1)\theta\right] + i\sin\left[(k+1)\theta\right]
+  \intertext{Because $S(k)$ implies $S(k+1)$, by POMI, it follows that the
+  result is true for all $\mathbb{N}$. For negative integers, consider an index
+  of $-n$ for $\mathbb{N}$:}
+  (\cos\theta + i\sin\theta)^{-n} &= \left[(\cos\theta + i\sin\theta)^n\right]^{-1} \\
+    &= \left[\cos(n\theta) + i\sin(n\theta)\right]^{-1} \\
+    &= \cos(-n\theta) + i\sin(-n\theta)
+\end{align}
 
 \section{Finding Roots of Complex Numbers}
 \label{sec:dMT Finding Roots of Complex Numbers}
