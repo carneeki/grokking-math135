@@ -8,3 +8,170 @@
   \item Next prove that \textbf{any one} statement then so is the next statement. This is known as the \textbf{inductive step}.
 \end{itemize}
 \end{bigideas}
+
+\section{Set Notation}
+\begin{itemize}
+  \item $\mathbb{N}$ Natural numbers, $\left\{ 1,2,3,4,\ldots\right\}$
+  \item $\mathbb{Z}$ Integers (from the German word for ``Number''), $\left\{\ldots,-3,-2,-1,0,1,2,3,\ldots\right\}$
+  \item $\mathbb{Q}$ Quotients (fractions), $\left\{ \frac{a}{b} | a \in \mathbb{Z}, b \in \mathbb{Z}, b \neq 0 \right\}$, rationals.
+  \item $\mathbb{R}$ Real numbers $\mathbb{Q} \cup \left\{\text{irrationals}\right\}$.
+\end{itemize}
+If a number, $A$ is a set of numbers and the number $x$ is a member of the set
+$A$, then we write $x \in A$. If $x$ is not a member of $A$ then we write
+$x \notin A$.
+
+\section{Intervals}
+\begin{itemize}
+  \item $[a,b] = {x \in \mathbb{R} | a \leq x \leq b})$ closed interval
+  \item $(a,b) = {x \in \mathbb{R} | a < x < b})$ open interval
+  \item $(a,b] = {x \in \mathbb{R} | a < x \leq b})$ partly open interval
+\end{itemize}
+Supose that $A$ and $B$ are two sets, we say that $A$ is a subset of $B$ if $x \in A$
+implies that $x \in B$ and is denoted by $A \subset B$. If $A$ is a subset of $B$
+then we also say that $B$ contains the set $A$.
+\begin{align}
+  A \subset B \text{if no element of A can be found which is not in B} \nonumber
+\end{align}
+\section{Well Ordering}
+Less than or equal ($\leq$) to provide an ordering on $\mathbb{N},\mathbb{Z},\mathbb{Q}$ and $\mathbb{R}$.
+Given an order on a set (any set, not just those 4), we call the set
+\emph{well-ordered} if every non-empty subset has a least element.
+\subsection{Example}
+Are any of the sets $\mathbb{N}, \mathbb{Z}, \mathbb{Q}$, and $\mathbb{R}$
+well-ordered?
+Ask ourselves, is $\mathbb{Z}$ well ordered? No because $\mathbb{Z} \subset \mathbb{Z}$
+
+Is $\mathbb{N}$ well ordered? Yes, because every non-empty subset has a least
+element. This is an axiomatic property of $\mathbb{N}$\footnote{That is, we define
+$\mathbb{N}$ to start at $1$ (or maybe $0$).}.
+
+\section{Propositions}
+A proposition is a statement that is either true ($\true$) xor false ($\false$).
+
+\section{The Principle of Mathematical Induction}
+Mathematical induction is a technique for proving if propositions index by natural numbers
+are true for all natural numbers. For example, consider the propositions $P_n$,
+where $P_n$ is the satement ``$3^n$ - 1'' disivible by 2.
+
+Supposed that $\{P_n\}$ is a collation of propositions such at
+\begin{enumerate}
+  \item $P_b$ is true for some fixed $b \in \mathbb{N}$.
+  \item $P_n$ is true, then $P_{n+1}$ is true.
+  \item The $P_n$ is true for all $n \in \mathbb{N}$.
+\end{enumerate}
+To use mathematical induction to prove sets of propositions like these, you
+should follow the following four step algorithm:
+\begin{enumerate}
+  \item Prove that a proposition is $\true$ for some fixed natural number (usually
+  $P_0$ or $P_1$). called the \emph{base case}.
+  \item Write down your assumption about the truth of the proposition $P_k$ for
+  some fixed arbitrary natural number $k$.
+  \item Write down the proposition $P_{k+1}$. Using the assumption that $P_k$
+  is true, prove that $P_{k+1}$ is true.
+  \item State that you have proved the propositions using POMI
+  \footnote{Principle of Mathematical Induction.}.
+\end{enumerate}
+\subsection{Example}
+Show that the following formula is true for all natural numbers, $n$:
+\begin{align}
+  1^2 + 2^2 + 3^2 + \ldots + n^2 & = \frac{n(n+1)(2n+1)}{6} \nonumber \\
+  \intertext{Firstly we must prove it for the base case}
+  \text{Let $n = 1$ such that} \nonumber \\
+  P_1 &= 1^2 = \frac{1\cdot(1+1)(2\cdot1 + 1)}{6} \\
+  \intertext{Assume $P_k$ is true:}
+   1^2 + 2^2 + 3^2 + \ldots + k^2 & = \frac{k(k+1)(2k+1)}{6} \\
+  \intertext{Substitute $P_{k+1}$}
+  1^2 + 2^2 + 3^2 + \ldots + (k+1)^2 & = \frac{(k+1)((k+1)+1)(2(k+1)+1)}{6} \\
+    &= \frac{(k+1)(k+2)(2(k+1)+1)}{6} \\
+    &= \frac{(k+1)(k+2)(2k +3)}{6} \\
+    &= \frac{(k^2 +3k +2)(2k +3)}{6} \\
+    &= \frac{(2k^3 +3k^2 +6k^2 +9k +4k +6)}{6} \\
+    &= \frac{(2k^3 +9k^2 +13k)}{6} + 1 \\
+    &= \frac{k^3}{3} + \frac{3k^2}{2} + \frac{13k}{6} + 1 \\
+  1^2 + 2^2 + 3^2 + \ldots + k^2 + (k+1)^2 &= \\
+    1^2 + 2^2 + 3^2 + \ldots + k^2 + k^2 + 2k + 1 &= \\
+    1^2 + 2^2 + 3^2 + \ldots + 2k^2 + 2k + 1 &=\\
+  \intertext{subtract 1 from both sides:}
+    1^2 + 2^2 + 3^2 + \ldots + 2k^2 + 2k &= \frac{k^3}{3} + \frac{3k^2}{2} + \frac{13k}{6} \\
+    1^2 + 2^2 + 3^2 + \ldots + 2k(k+1) &=
+  \intertext{now i give up}
+\end{align}
+
+\begin{align}
+\intertext{Proposition $P_n$:}
+  1^2 + 2^2 + 3^2 + \ldots + n^2 & = \frac{n(n+1)(2n+1)}{6} \nonumber \\
+\intertext{Assume $P_k$:}
+  1^2 + 2^2 + 3^2 + \ldots + k^2 & = \frac{k(k+1)(2k+1)}{6} \nonumber \\
+\intertext{Assume $P_{k+1}$}
+  1^2 + 2^2 + 3^2 + \ldots + (k+1)^2 & = \frac{(k+1)((k+1)+1)(2(k+1)+1)}{6} \\
+\intertext{Add $(k+1)^2$ to both sides} 
+1^2 + 2^2 + 3^2 + \ldots + (k+1)^2 + (k+1)^2 & = \frac{(k+1)((k+1)+1)(2(k+1)+1)}{6} + (k+1)^2\\
+& = \frac{(k+1)((k+1)+1)(2(k+1)+1)}{6} + \frac{6(k+1)^2}{6}\\
+\end{align}
+Foo
+\begin{align}
+  1^2 + 2^2 + \ldots + (k+1)^2 &= \frac{(k+1)((k+1)(+1))(2k+3)}{6} 
+\end{align}
+
+So since $P_1$ is true and if $P_k$ is true, then $P_{k+1}$ is true so by the
+POMI $P_n$ is true for $n \in \mathbb{N}$.
+
+
+\subsection{Example}
+Show that $3^n -1$ is divisible by 2 for all natural numbers $n$.
+\begin{align}
+\intertext{Step 1: prove the base case}
+  P_1 \text{says $3^1-1$ is divisble by 2 which is true} \\
+  P_2 \text{says $3^2-1$ is divisible by 2 which is true} \\
+\intertext{Assume $P_k$}
+  3^k - 1 & \text{is divisible by 2} \\
+    & \leftrightarrow 3^k - 1 = 2s | s \in \mathbb{Z} \\
+\intertext{Step 3 $P_{k+1}$ says:}
+  3^{k+1} - 1 &  ~\text{is divisible by 2} \\
+    & \leftrightarrow 3^{k+1} - 1 = 2s' | s' \in \mathbb{Z}
+\end{align} 
+
+\subsection{Example}
+Show $2^k > k^3$ for natural numbers where $n \geq 10$.
+\begin{align}
+  \intertext{Prove base case}
+  \intertext{Assume $P_k$}
+    2^k & > k^3 \\
+  \intertext{$P_{k+1}$ says}
+    2^{k+1} & > (k+1)^3 \\
+  \intertext{Assume}
+    2^k & > k^3 \\
+    2^{k+1} & > 2k^3 \\
+      & > k^3 + k^3 \\
+      & \geq k^3 + 10k^2 \\
+      & \geq k^3 + 3k^2 + 3k^2 + 4k^2 \\
+      & > k^3 + 3k^2 + 3k + 1 \\
+   2^{k+1} & > (k+1)^3 \\
+   \intertext{Which is $P_{k+1}$} \nonumber
+\end{align}
+
+\section{Some remarks on terminology}
+\textbf{Inductive arguments (ordinary English)} - An argument where we use
+evidence from specific statements to conclude that something is probably.
+Example: All life forms we know of depend on water to exist. Therefore, if we
+discover a new life form, it will probably depend on water to exist.
+\textbf{Deductive Aruments (ordinary English)} - An argument where we use
+general statements to conclude that something is certain. Example: All champagne
+is made in France. Dom Perignon is a champagne. Therefore Dom Perignon is made
+in France.
+\textbf{Mathematical Induction} is badly named, because in ordinary English it
+is really a form of deduction not induction. This is because we use priniciples
+to guarantee the truth of the given propositions.
+
+\subsection{Example}
+In the parlour game Nim, there are two players and two piles of matches. At each
+turn a player removes some (non-zero) number of matches from one of the piles.
+The player who removes the last match wins.
+
+Prove that if the two piles contain the second number of matches at the start of
+the game, then the second player can always win.
+
+\subsubsection{Winning strategy} Player 2 takes from the opposite pile the same
+number of pens that player removed.
+
+Induction on the number of pens, $n$. This means that player 2 \emph{must} win.

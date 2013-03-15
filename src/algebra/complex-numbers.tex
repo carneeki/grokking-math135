@@ -13,11 +13,14 @@ Further reading: \texttt{Chris Cooper ``LINALG03 Complex Numbers''}, \, \url{htt
   \item i exhibits ring-like behaviour when raised to powers.
   \item A complex number resembles the form:\\
   \begin{align}
-    z = x + y\text{i} & \quad | \quad x,y \in \mathbb{R} 
+    z & = x + y\text{i} \quad | ~ x,y \in \mathbb{R} 
+  \intertext{
+  and the set of complex numbers, $\mathbb{C}$ is defined as:
+  }
+    \mathbb{C} &= {a + ib \quad | ~ a,b \in \mathbb{R}, ~ i^2 =-1}
   \end{align}
   \item Rules exist for adding, subtracting, multiplying and dividing
   complex numbers.
-  \item Complex numbers fall into their own special set of numbers $\mathbb{C}$.
   \item Complex numbers have a ``twin'' called a \emph{complex conjugate},
   suppose we have:
   \begin{align}
@@ -151,3 +154,94 @@ Proof of equation \ref{eq:complexconjugmult} is as follows:
     &= (x - y\text{i})(u-v\text{i}) \\
     &= \overline{z} \cdot \overline{w}
 \end{align}\qedbitches
+
+\section{Polynomials with Complex Coefficients}
+Every polynomial with complex coefficients has a complex root. This result is
+called the \emph{Fundamental Theorem of Algebra}.\footnote{Unfortunately the
+proof of this is rather complicated.}
+
+\section{Equalities of Complex Numbers}
+In developing new numbers, a property is lost. \\ For example $\mathbb{N} \to
+\mathbb{Z}$, we lose the well ordering property.
+As we go from $\mathbb{R} \to \mathbb{C}$ we lose the property of equalities
+(such as $<$ and $>$).\footnote{cf Apostol, Mathematical Analysis}.
+
+Suppose that $<$ has usual properties and also suppose that $i > 0$. We need to
+choose one of $i > 0$, or $i < 0$, or $i = 0$. Since $i > 0$:
+\begin{align}
+      i & > 0 \\
+  i * i & > i*0 \\
+  -1 & > 0 \quad \text{problem!} \\
+  -i & > 0 \quad \text{problem, because} \\
+   i & < 0 \quad \text{How can i be bigger and less than zero at the same time?}
+\end{align}
+
+Recap: How does equality work?
+\begin{align}
+  \intertext{Let}
+    z & = a + ib \\
+    w & = c + id \\
+  \intertext{then}
+    z & = w \quad \text{iff } a = c \text{and} b = d
+\end{align}
+
+We have don't go outside $\mathbb{C}$, let's consider, $\sqrt{i}$. Is this
+complex? Consider the question, ``What polynomial is this the root of?''.
+\begin{align}
+  \intertext{Let}
+    x = \sqrt{i} \\
+    x^2 = i \\
+    x^2 - i = 0 \\
+  \intertext{such that}
+  \sqrt{i} \quad \text{is a root of} \\
+  p(x) = x^2 - i \\
+  \intertext{By the Fundamental Theorem of Algebra, we must be able to find $a,b$
+  so that a,b $\in \mathbb{R}$} \\
+  a + ib = \sqrt{i} \\
+\end{align}
+
+\begin{align}
+  a + ib = \sqrt{i} \\
+  (a + ib)(a + ib) = i \\
+  a^2 + 2iab + i^2(b^2) = i \\
+  a^2 + 2iab - b^2 = i
+\end{align}
+
+$i$ has great practical importance. Without $i$ we can't do much engineering
+or physics without $i$. Mainly electronics engineers already have $i$ reserved
+for the unit of current, so $j$ is used in place.\footnote{Because engineers are
+even less creative than mathematicians.}
+
+We have already seen how to draw $i$.
+
+%      |, 1
+%      |
+% -----+-----
+%      |
+%      |
+%
+
+What of 2+i?
+
+Identify a + ib with (a,b).
+$a + ib \in \mathbb{C} | (a,b) \in \mathbb{R}^2$
+
+$a + ib \leftrightarrow (a,b)$
+
+\section{Scaling complex numbers}
+Approach from a numerical example:
+\begin{align}
+  \intertext{Let}
+    z &= 3 + i \\
+  \intertext{Consider}
+    2z &= 6 + 2i \\
+    3z &= 9 + 3i \\
+    \frac{1}{2}z = \frac{3}{2} + \frac{1}{2}i \\
+    -z &= -3 -i \\
+\end{align}
+
+A very important concept in complex numbers is the distance away from $0$. As
+for reals, we denote this by absolute value. This is also called the \emph{modulus}
+or \emph{magnitude}.
+
+$$|z| = \text{is the distance from $z$ to $0$}$$
