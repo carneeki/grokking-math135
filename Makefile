@@ -1,11 +1,19 @@
 all: clean book
 
 clean:
-	rm out/*
+	@ #check if out/ exists
+	@if [ ! -d out ]; then \
+		mkdir out;           \
+	fi
+	rm -f out/*
 
 tidy:
-	rm out/*.aux
-	rm chaps/*.aux
+	rm -f out/*.aux
+	rm -f chaps/*.aux
 
 book:
+	@ #check if out/ exists
+	@if [ ! -d out ]; then \
+		mkdir out;          \
+	fi
 	pdflatex --output-directory=out MATH135.tex
