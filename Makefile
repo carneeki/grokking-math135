@@ -7,13 +7,11 @@ clean:
 	fi
 	rm -f out/*
 
-tidy:
-	rm -f out/*.aux
-	rm -f chaps/*.aux
+book: clean book1 book2
+	pdflatex --output-directory=out MATH135.tex
 
-book:
-	@ #check if out/ exists
-	@if [ ! -d out ]; then \
-		mkdir out;          \
-	fi
+book1:
+	pdflatex --output-directory=out MATH135.tex
+
+book2:
 	pdflatex --output-directory=out MATH135.tex
