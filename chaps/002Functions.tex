@@ -1,0 +1,113 @@
+\chapter{Functions}
+
+\section{Composition of Functions}
+
+Suppose there are two functions:
+
+\begin{align}
+  g(x) &= \sqrt{x} \\
+  f(x) &= -(1+x^2)
+  \intertext{If we try to fit the output of $f$ into $g$:}
+  g(f(x)) &= \sqrt{-(1+x^2)} \\
+  \intertext{
+    \begin{enumerate}
+      \item This won't work for $\mathbb{R}$ (but will work for $\mathbb{C}$).
+      \item It can be written as can be written as:
+    \end{enumerate}
+  }
+  &= (g \circ f)(x)
+  \intertext{You need to make sure the codomain of the inner function matches
+  the domain of the outer function.}
+\end{align}
+
+
+Does outer and inner order matter?
+\begin{align}
+  f&: \mathbb{R} \to \mathbb{R}, f(x) = e^x \\
+  g&: \mathbb{R} \to \mathbb{R} : x \mapsto \sin(x) \\
+  (g \circ f)(x)
+   &= g(f(x)) \\
+   &= g(e^x) \\
+   &= \sin(e^x)
+\end{align}
+Compare it to
+\begin{align}
+  (f \circ g)(x)
+   &= f(g(x)) \\
+   &= f(e^g(x)) \\
+   &= f(e^{\sin(x)})
+\end{align}
+Which is very different, so yes - order matters.
+
+\subsection{Domain and Codomain matching}
+\begin{align}
+  f&: \mathbb{R} \\ \{0\} \to \mathbb{R}, f(a) = \frac{1}{a} \\
+  g&: \mathbb{R} \to \mathbb{R}: y \mapsto \sin(y) \\
+  (g \circ f)(x)
+    &= g(f(x)) \\
+    &= g(\frac{1}{x}) \\
+    &= \sin(\frac{1}{a}) \\
+  dom(g \circ f) &= dom(f) = \mathbb{R} \\ \{ 0 \} \\
+  cod(g \circ f) &= cod(g) = \mathbb{R}
+  \intertext{The following function, $f_1$ could be created to extend $f$ such
+  that the codomain of $f_1$ matches the domain of $g$.}
+  f_1 &: \mathbb{R} \\ \{ 0 \} \to \mathbb{R} \\ \{ 0 \}, f_1(x) = \frac{1}{x}
+  \intertext{Or one could extend $g$ to create $g_1$ to take a wider domain.}
+\end{align}
+
+Example:
+\begin{align}
+  f&: \mathbb{R} \to \mathbb{R}, f(x) = x^2 \\
+  g&: \mathbb{R} \to \mathbb{R}, g(y) = \frac{1}{1+y^2} \\
+  h&: \mathbb{R} \to \mathbb{R}, h(z) = \cos(z) \\
+  (g \circ f)(x)
+   &= g(x^2) \\
+   &= \frac{1}{1+((x^2)^2)} \\
+   &= \frac{1}{1+x^4} \\
+  (h \circ g)(y)
+   &= h(\frac{1}{1+y^2}) \\
+   &= \cos(\frac{1}{1+y^2}) \\
+  (h \circ (g \circ f))(x)
+   &= h(\frac{1}{1+x^4}) \\
+   &= \cos(\frac{1}{1+x^4}) \\
+  (h \circ g(f(x)))
+   &= (h \circ g)(x^2) \\
+   &= \cos(\frac{1}{1+x^4})
+  \intertext{Functional composition is associative}
+  (h \circ (g \circ f))(x) &= ((h \circ g) \circ f)(x) \\
+   &= ( h \circ g \circ f)
+\end{align}
+
+\subsection{Inverse functions}
+An inverse is an 'undoing function' for a given bijective function.
+
+\begin{align}
+  (g \circ f)(x)
+   &= g(f(x)) \\
+   &= x
+  \intertext{identity function:}
+   &= id(x)
+  \intertext{Likewise, $f$ can undo $g$}
+  (f \circ g)(x)
+   &= f(g(x)) \\
+   &= x
+  (g \circ f) &= id_A \quad f: A \to B \\
+  (f \circ g) &= id_B \quad g: B \to A \\
+\end{align}
+Notation:
+\begin{align}
+  f^{-1}
+  \intertext{Note: this does NOT necessarily mean 1/f(x).}
+\end{align}
+
+Example:
+\begin{align}
+  f(x) &= x^3 \\
+  g(y) &= x^{\frac{1}{3}} \\
+  f(g(y)) &= f(y^\frac{1}{3}) = (y^\frac{1}{3})^3 \\
+  % todo write inverse
+  f(x) = 2x-1
+  y = 2x-1
+  y+x = 2x
+  \frac{1}{2}(y+1) = x
+\end{align}

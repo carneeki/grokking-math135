@@ -1,0 +1,34 @@
+\usepackage{fourier}
+\makeatletter
+\newif\iffelinenonum
+\newcommand\MyNumToName[1]{%
+\ifcase#1\relax % case 0
+\or First\or Second\or Third%
+\else Not implemented\fi}
+\makechapterstyle{daleif3}{
+\renewcommand\chapternamenum{}
+\renewcommand\printchaptername{}
+\renewcommand\chapnamefont{\small\itshape\centering}
+\setlength\midchapskip{7pt}
+\renewcommand\printchapternum{%
+\par\chapnamefont\decofourleft\enspace%
+\ifanappendix
+\appendixname\space\thechapter%
+\else%
+\MyNumToName{\thechapter}\space\chaptername%
+\fi%
+\/\enspace\decofourright}
+\renewcommand\printchapternonum{\par\felinenonumtrue}
+\renewcommand\chaptitlefont{\huge\itshape\centering}
+\renewcommand\afterchapternum{%
+\par\nobreak\vskip-5pt%
+}
+\renewcommand\afterchaptertitle{%
+\par\vskip-2\midchapskip%
+\rule\textwidth\normalrulethickness
+\felinenonumfalse
+\nobreak\vskip\afterchapskip%
+}
+}
+\makeatother
+\chapterstyle{daleif3}
