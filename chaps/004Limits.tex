@@ -1,2 +1,236 @@
 \chapter{Limits}
-TODO: Write me.
+
+\section{TODO: What is a limit}
+TODO
+
+\section{TODO: uses of a limit}
+TODO
+
+\section{TODO: epsilon-delta definition of a limit}
+TODO
+
+\section{Left and Right Hand Limits}
+
+\subsection{Right Hand Limits}
+Happens when you approach a limit from the right
+\begin{align}
+  \lim_{x \to a^+} f(x) &= L
+\end{align}
+
+\subsection{Left Hand Limits}
+Happens when you approach a limit from the left
+\begin{align}
+  \lim_{x \to a^-} f(x) &= L
+\end{align}
+
+\subsection{Both Limits}
+By combining left and right hand limits, if they exist and are equal to each other:
+\begin{align}
+  \lim_{x \to a} f(x) &= L
+\end{align}
+
+\section{Other cases of interest}
+\subsection{Limit does not exist}
+Sometimes a function has no limit. In this case we may have to expand the
+concept of limits. One such case as an example:
+
+\begin{align}
+  f(x) &= \frac{1}{x^2}
+\end{align}
+
+\noindent In a strict sense, $\lim_{x \to 0}$ does not exist as there is no
+finite value such that $f(x)$ approaches a value as $x$ approaches 0. What we
+can say is, for $M \in \mathbb{R}_{>0}$ we have $|f(x)| > M$ provided that
+$0 < |X| < \delta$ for some $\delta \in \mathbb{R}_{>0}$. If this happens,
+
+\begin{align}
+  \lim_{x \to 0} \frac{1}{x^2} &= + \infty
+\end{align}
+
+\noindent In a general sense:
+\begin{align}
+  \lim_{x \to a} f_1(x) &= +\infty
+  \intertext{but also...}
+  \lim_{x \to a} f_2(x) &= -\infty
+\end{align}
+
+\subsection{Example: $y = \frac{1}{x}$}
+
+TODO: include graph of y= 1/x
+
+\begin{align}
+  \lim_{x \to 0^+} \frac{1}{x} &= +\infty \\
+  \lim_{x \to 0^-} \frac{1}{x} &= -\infty
+\end{align}
+
+\noindent If this is the case, the vertical line which is given by $x = a$ is
+vertically asymptotic.
+
+\subsection{Example: $\tan(x)$}
+
+TODO: include tan(x) at $\pm$ pi/2 3pi/2 etc...
+
+
+\section{Arbitrary}
+Say $f(x) \to L$ when $x \to + \infty$, the notation:
+
+\begin{align}
+  \lim_{x \to +\infty} f(x) &= L
+\end{align}
+
+$|f(x) - L|$ can be made arbitrarily small provided that $x$ is sufficiently
+large.
+
+\subsection{Example: $\arctan(x)$}
+TODO include arctan(x) (rotate tan(x) and rotate)
+
+As $x$ grows sufficiently large, the narrower the $\epsilon$ gets
+\begin{align}
+  \lim_{x \to +\infty} \arctan(x) &= \frac{\pi}{2} \\
+  \lim_{x \to -\infty} \arctan(x) &= -\frac{\pi}{2}
+\end{align}
+
+In this case, we call it a horizontal asymptote, $y = \pm \frac{\pi}{2}$
+depending on whether we are moving to positive or negative infinity.
+
+\subsection{Example:}
+
+Provided that the limit exists, find
+$\lim_{x \to +\infty} \frac{\sqrt{9x^2 +4x +5}}{x}$.
+
+\begin{align}
+  \intertext{We need to find what the limit is of the function as $x$ gets larger and larger.}
+  \lim_{x \to +\infty} \frac{\sqrt{9x^2 +4x +5}}{x} & \\
+  &= \lim_{x \to +\infty} \frac{\sqrt{x^2(9 +4/x +5/x}}{x} \\
+  &= \lim_{x \to +\infty} \frac{|x| \sqrt{9+ 4/x +5/x}}{x} \label{eq:jump1}\\
+  &= \lim_{x \to +\infty} \frac{x \sqrt{9+ 4/x +5/x}}{x} \\
+  &= \lim_{x \to +\infty} \sqrt{9+ 4/x +5/x} \\
+  &\approx \lim_{x \to +\infty} \sqrt{9} \\
+  &\approx \lim_{x \to +\infty} 3
+  \intertext{Consider the same function as $x$ gets smaller and smaller}
+  \lim_{x \to -\infty} \frac{\sqrt{9x^2 +4x +5}}{x} &
+  \intertext{Using the working to arrive at \ref{eq:jump1}}
+  &= \lim_{x \to -\infty} \frac{|x| \sqrt{9+ 4/x +5/x}}{x} \nonumber \\
+  &= \lim_{x \to -\infty} \frac{-x \sqrt{9+ 4/x +5/x}}{x} \\
+  &= \lim_{x \to -\infty} -\sqrt{9+ 4/x +5/x} \\
+  &\approx \lim_{x \to -\infty} -\sqrt{9} \\
+  &\approx \lim_{x \to -\infty} -3
+\end{align}
+
+
+\section{Continuity}
+Continuity is an important property of functions as it allows one to examine the
+properties of a function. Sufficiently small errors in the inputs translate to
+arbitrarily small errors in the output.
+
+\subsection{Definition}
+Suppose we have a function with a particular domain and real values, \\
+\noindent $f: D \to \mathbb{R}, a \in D$.\\
+\begin{enumerate}
+  \item If $\lim_{x \to a} f(x) = f(a)$, then the function is said to be continuous
+at that particular point, $x = a$.
+  \item If if is continuous at all $a \in D$ then $f$ is continuous
+  \item If is is said to be continuous at all $a \in D$, then $f$ is continuous.
+  \item Value of f(a) is important for $f$ to be continuous at $x = a$.
+  \item $f$ is continuous at $a$ iff
+  \begin{enumerate}
+    \item $\lim_{x \to a^+} f(x) = f(a)$ AND
+    \item $\lim_{x \to a^-} f(x) = f(a)$
+  \end{enumerate}
+That is, $f$ is continuous iff we approach $a$ from both the left and right hand
+side and we can reach $f(a)$.
+\end{enumerate}
+
+\section{Properties}
+\begin{enumerate}
+  \item If $f$ is continuous at $a$ and $g$ is continuous at $a$, then
+  \begin{align}
+    \lim_{x \to a} (f+g)(x) & \\
+    &= \lim_{x \to a} ( f(x) + g(x)) \\
+    &= \lim_{x \to a} f(x) + \lim_{x \to a} g(x) \\
+    &= f(a) + g(a) \\
+    &= (f+g)(a)
+  \end{align}
+  Then $f+g$ is continuous at $a$.
+
+  \item If $f$ is continuous at $a$
+  TODO: fill in from notes from Frank.
+
+  is continuous at $a$.
+  \item Similar for $\frac{f(x)}{g(x)}$ if $g(a) \neq 0$.
+\end{enumerate}
+
+\section{Library of continuous functions}
+In general, a function is going to be continuous "if you can draw it without
+removing the nib of your pen from the paper." Some examples:
+\begin{enumerate}
+  \item Polynoials
+  \item Rational functions on their domain. $\frac{p_1(x)}{p_2(x)}$ if $p_2(a) \neq 0$. \\
+  Dom($frac{p_1(x)}{p_2(x)}$) = $\left\{ x \in \mathbb{R} | p_2(x) \neq 0\right\}$
+  \item $\sin$, $\cos$ are continuous
+  \item $\arcsin$, $\arccos$, $\arctan$ are continuous
+  \item Exponentials, logarithms are continuous
+  \item $f: \mathbb{R} \to \mathbb{R} | f(x) = |x|$ (absolute value functions
+  are continuous).
+  \item $g: \mathbb{R}_{>0} \to \mathbb{R} | g(x) = \frac{1}{x}$ is continuous.
+  \item $h: \mathbb{R}_{\neq 0} \to \mathbb{R} | h(x) = \frac{1}{x}$ is continuous.
+  \item $h_2: \mathbb{R} \to \mathbb{R} | h_2(x) = \{ \frac{1}{x} | x \neq 0 , 0 | x = 0$ is NOT continuous
+  as there is a jump from (sufficiently small value of -x) to 0 and 0 to (sufficiently small value of x).
+  \item $h_3: \mathbb{R} \to \mathbb{R} | h_3(x) = \{ 1 | x > 0, -1 | x \leq 0$
+  is NOT continuous near $x=0$ (jumps from -1 to 1).\footnote{This function is called the Heaviside function.}
+  \item $h_4: \mathbb{R}_{x \neq 0} \to \mathbb{R} | h_4(x) = \{ 1 | x > 0, -1 x < 0$ is continuous
+  (because at $x=0$ the function is not defined)
+\end{enumerate}
+
+\subsection{Examples}
+These three functions (hyperbolic sin, cosine and tan functions) are continuous
+\begin{align}
+  \cosh(x) &= \frac{e^x + e^-x}{2} \\
+  \sinh(x) &= \frac{e^x - e^-x}{2} \\
+  \tanh(x) &= \frac{\sinh(x)}{\cosh{x}} = \frac{e^x - e^-x}{e^x + e^-x}
+\end{align}
+
+\begin{align}
+  \text{We have seen} \quad \lim_{x \to 0} \frac{\sin(x)}{x} &= 1 \\
+  \frac{\sin(-x)}{-x} &= \frac{\sin(x)}{x} 1 \\
+  \intertext{$\therefore$ even function}
+  f(x) &= \{ \frac{\sin(x)}{x} | x \neq 0, 1 | x = 0 \\
+  f(0) &= 1 = \lim_{x \to 0} \frac{\sin(x)}{x}
+  \intertext{$\therefore f$ is continuous at $x=0$}
+\end{align}
+
+\subsection{Example problem}
+Find $a$ and $b$ so that the function
+$f(x) = \{ -x^2 + a | x \leq 0,
+        x\sin(1/x) + 1 | 0 < x \leq \frac{1}{\pi},
+        bx^3 + 2 | x > \frac{1}{\pi}
+$
+
+Potentially problematic points will be near the edge cases for each piece of the
+definition as each piece itself is continuous, but may not be continuous with
+adjacent pieces...
+\begin{enumerate}
+  \item $x = 0:$ \\
+   $\lim_{x \to -0} f(x) = \lim_{x \to -0}(-x^2+a) = a$ \\
+   $\lim_{\to +0} f(x) = \lim_{x \to +0} (x\sin(\frac{1}{x})) +1 = 1 $ \\
+  So $a = 1$
+  \item $x = \frac{1}{\pi}:$ \\
+  $\lim_{x \to + {1/\pi}^-} (x\sin(\frac{1}{x})) + 1 = 1$
+  $\lim_{x \to {1/\pi}^+} (bx^3 +2) = b 1/\pi^3 + 2$
+  To make $f$ continuous at $x = 1/\pi$ take $b$ such that $b/\pi^3 + 2 = 1$
+  so b = $-\pi^3$
+\end{enumerate}
+
+Thus if $f: A\to B$ continuous at $a \in A$ and $g: B \to C$ is continuous at
+$f(a) \in B$ then $g \circ f: A \to C$ continuous at $a \in A$... Or "the
+composition of cfunctions is continuous".
+
+Eg $\sin(1/x): 0 \neq x \mapsto 1/x \mapsto \sin(1/x)$
+
+Example:
+\begin{align}
+  f(x) &= \sin(\frac{\tan x}{1+x^2}) \\
+  & \quad \text{for} -\frac{\pi}{2} < x < \frac{\pi}{2} \\
+  Dom(f) = ( -\frac{\pi}{2}, \frac{\pi}{2})
+\end{align}
+$\therefore f(x)$ is continuous.
