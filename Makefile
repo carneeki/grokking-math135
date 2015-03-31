@@ -8,10 +8,10 @@ clean:
 	rm -f out/*
 
 book: clean book1 book2
-	pdflatex --output-directory=out MATH135.tex
+	pdflatex -interaction=batchmode --shell-escape --enable-write18 --output-directory=out MATH135.tex
 
 book1:
-	pdflatex --output-directory=out MATH135.tex
+	pdflatex -interaction=batchmode --shell-escape --enable-write18 --output-directory=out MATH135.tex
 
 book2:
-	pdflatex --output-directory=out MATH135.tex
+	pdflatex -interaction=batchmode --shell-escape --enable-write18 --output-directory=out MATH135.tex
