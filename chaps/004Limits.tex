@@ -234,3 +234,86 @@ Example:
   Dom(f) = ( -\frac{\pi}{2}, \frac{\pi}{2})
 \end{align}
 $\therefore f(x)$ is continuous.
+
+\section{Consequences of Continuity}
+\begin{itemize}
+  \item If a function is discontinuous, \\
+  \\
+  $\forall \epsilon > 0 : \exists \delta > 0 : | x - a | < \delta \to | f(x) - f(a)| < \epsilon $ \\
+  \\
+  Meaning, for a band of errors (vertical strips representing input, $\delta$)
+  you can find a band of errors (horizontal strips representing output,
+  $\epsilon$).
+  \item if $f: D \to \mathbb{R}$ is continuous for all points ($x$) such that
+  $a \leq x \leq b (a \neq b)$, then if
+  \begin{itemize}
+    \item $f(a) = f(b)$ and $f(b) < c < f(a)$ then there exists at least one
+    (and possibly more) $x_0$ with $a < x_0 < b$ such that $f(x_0) = c$.
+    \item $f(a) < f(b)$ and $f(c) < c < f(b)$ then there exists at least one
+    (and possibly more) $x_0$ with $a < x_0 < b$ such that $f(x_0) = c$.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Examples}
+$f: \mathbb{R} \to \mathbb{R}, f(x) = e^{-x} -x$ is continuous everywhere. Show
+that $e^{-x} -x$ has at least one solution.
+
+\begin{align}
+  \intertext{Start with zero, as it is easy}
+  f(x) &= e^{-x} -x \\
+  f(0) &= e^0 - 0 \\
+       &= 1 \\
+       & 1 > 0 \\
+  f(1) &= e^{-1} -1 \\
+       &= \frac{1}{e} -1 < 0
+  \intertext{Since $f(1) < 0 < f(0)$ and $f$ is continuous on $[0,1]$, the
+  intermediate value theorem (IVT) allows you to conclude that
+  $f(x)= e^{-x}-x=0$ has at least one solution between $0<x<1$}
+\end{align}
+
+
+In tutorials there was a function...
+$g(x) = 1 - \frac{x}{\sqrt{1+x^2}}$. We have to find the range of this function.
+
+\begin{align}
+  \intertext{Algebraically:}
+    g(x) &= 1 - \frac{x}{\sqrt{1+x^2}} \\
+         &= 1 - f(x)
+  \intertext{Range of $g$ is related to range of $f$ by changing the sign, and
+  then add one.}
+    f(x) &= \frac{x}{\sqrt{1+x^2}}
+  \intertext{For $y \in $ range of $f$, solve $y = \frac{x}{\sqrt{1+x^2}}$}
+  y\sqrt{1+x^2} &= x \\
+  y^2(1+x^2)    &= x^2 \\
+  y^2 + y^2x^2  &= x^2 \\
+  y^2 &= x^2(1-y^2) \\
+  x^2 &= \frac{y^2}{1-y^2} \quad \text{need $-1<y<1$} \\
+  x   &= \sqrt{y}{\sqrt{1-y^2}} \quad \forall -1 < y < 1
+%TODO: complete with Frank's notes for apply check  (~35 mins)
+  \intertext{As this is quite onerous, one can also use IVT...}
+  f(x) &= \frac{x}{\sqrt{1+x^2}} \\
+  \lim_{x \to + \infty} \frac{x}{\sqrt{1+x^2}}
+    &= \lim_{x \to + \infty} \frac{x}{\sqrt{x^2+(1+\frac{1}{x^2})}} \\
+    &= \lim_{x \to + \infty} \frac{x}{|x| \sqrt{1+\frac{1}{x^2}}} \\
+    &= \lim_{x \to + \infty} \frac{x}{\sqrt{1+\frac{1}{x^2}}} = 1\\
+  \lim_{x \to - \infty} \frac{x}{\sqrt{1+\frac{1}{x^2}}}
+    &= \lim_{x \to + \infty} \frac{x}{ (-x) \sqrt{1+\frac{1}{x^2}}} = -1 \\
+  \left| \frac{x}{\sqrt{1+x^2}}\right| &= \frac{|x|}{|x|\sqrt{1+x^2}}
+    =  \frac{1}{\sqrt{1 + \frac{1}{x^2}}} < 1
+  \intertext{$\therefore$ range of $f$ is between $-1$ and $1$, now connect back
+  to $g$...}
+  g(x) &= 1 - \frac{x}{\sqrt{1+x^2}} \\
+  \text{so range} &= (0,2)
+\end{align}
+
+
+Second example, solving inequalities, $\frac{x^2+7x+2}{x-3} > 1$
+\begin{align}
+  \frac{x^2+7x+2}{x-3} &> 1 \\
+  \frac{x^2+7x+2}{x-3} -1 &> 0 \\
+  \frac{x^2+7x+2 - (x-3)}{x-3} &> 0 \\
+  \frac{x^2 +6x +5}{x-3} &> 0 \\
+  x &\neq 3 \\
+  x^2 +6x +5 &= (x+5)(x+1) \\
+  \intertext{Rational functions are continuous when defined}
+\end{align}
