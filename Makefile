@@ -7,6 +7,11 @@ clean:
 	fi
 	rm -f out/*
 
+debug: clean
+	pdflatex --shell-escape --enable-write18 --output-directory=out MATH135.tex
+	pdflatex --shell-escape --enable-write18 --output-directory=out MATH135.tex
+	pdflatex --shell-escape --enable-write18 --output-directory=out MATH135.tex
+
 book: clean book1 book2
 	pdflatex -interaction=batchmode --shell-escape --enable-write18 --output-directory=out MATH135.tex
 
