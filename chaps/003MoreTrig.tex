@@ -1,2 +1,182 @@
 \chapter{Trigonometry}
-TODO: Write me.
+\section{Functions recap}
+Last week:
+\begin{enumerate}
+  \item Discussed concept of a function (modern concept).
+  3 pieces of information:
+  \begin{enumerate}
+    \item
+    $f: A \to B, f(x) = \frac{1}{1+x^2}$ \\
+    Where A is the domain, B is the range, and what follows is the definition of
+    the function.
+  \end{enumerate}
+\end{enumerate}
+
+\section{Introduction to Trigonometry}
+Now we look at a particular class of functions, \emph{trigonometric functions}.
+Many physics and engineering applications require the use of trigonometric
+functions.
+
+%TODO: include fig 1
+include fig 1
+
+Observation: $\frac{a}{b} = \frac{c}{d}$. \\
+This argument holds iff $ad = bc$ \\
+It follows:
+\begin{align}
+  \frac{a}{\sqrt{a^2+b^2}} :& \\
+  \frac{a^2}{a^2+b^2} \\
+  &= \frac{a^2/b^2}{a^2/b^2 + 1} \\
+  &= \frac{c^2/d^2}{c^2/d^2 + 1} \\
+  &= \frac{c^2}{c^2+d^2}
+  \intertext{also}
+  \frac{a}{\sqrt{a^2+b^2}} &= \frac{c}{\sqrt{c^2+d^2}}
+  \intertext{similarly}
+  \frac{b}{\sqrt{a^2+b^2}} &= \frac{d}{\sqrt{c^2 + d^2}}
+  \intertext{Ratios for corresponding sides depend only on the interior angle
+  $\alpha$. Rectangular triangle completely characterized by one of its
+  non-trivial interior angles.}
+  \text{TODO: include fig 2}
+\end{align}
+
+Some stuff
+
+\begin{align}
+  \intertext{Define:(unambiguously)}
+  \cos \alpha &= \frac{b}{\sqrt{a^2+b^2}} & \quad \frac{\text{adjacent}}{\text{hyptoenuse}} \\
+  \sin \alpha &= \frac{a}{\sqrt{a^2+b^2}} & \quad \frac{\text{opposite}}{\text{hyptoenuse}} \\
+  \tan \alpha &= \frac{a}{b} & \quad \frac{\text{opposite}}{\text{adjacent}} \\
+\end{align}
+
+\section{The Unit Circle}
+TODO include fig 3
+
+\begin{align}
+  \sec{\beta} &= \frac{1}{\cos \beta} = \frac{1}{\xi} \\
+  \csc{\beta} &= \frac{1}{\sin \beta} = \frac{1}{\eta} \\
+  \cot{\beta} &= \frac{1}{\tan \beta}
+\end{align}
+
+include fig 4
+
+\begin{align}
+  \sin : \mathbb{R} \to \mathbb{R}, \text{Range}(\sin) = [-1, +1] \\
+  \cos : \mathbb{R} \to \mathbb{R}, \text{Range}(\cos) = [-1, +1] \\
+  \tan(\alpha) : \mathbb{R} \to \mathbb{R}: \frac{\sin \alpha}{\cos \alpha}
+  \intertext{$\cos \alpha$ cannot be zero, so we exclude $\pi/2$ and $-\pi/2 and
+  any multiple thereof$.}
+  \tan(\alpha) : \mathbb{R} \setminus
+    \left \{ \frac{\pi}{2} + k \pi : k \in \mathbb{Z} \right \} \to \mathbb{R}\\
+  \cot(\theta) : \frac{\cos \theta}{\sin \theta} = \frac{\xi}{\eta}
+  \intertext{any multiple of $\pi$ should not be in the domain because
+  $\sin\theta$ will be a zero denominator}
+  \cot \theta : \mathbb{R} \setminus
+    \left \{ \frac{\pi}{2} + k \pi : k \in \mathbb{Z} \right \} \to \mathbb{R}\\
+\end{align}
+
+\section{Pythagoras}
+$\xi^2 + \eta^2 = 1$ leads to \\
+$\cos^2(\gamma) + \sin^2(\gamma) = 1$ \\
+This equation is Pythagoras' theorem applied to the unit circle.
+
+Divide by $\sin^2(\gamma)$:
+\begin{align}
+  \frac{\cos^2\gamma}{\sin^2 \gamma} +1 &= \frac{1}{\sin^2 \gamma} \\
+  \cot^2 \gamma + 1 &= \csc^2 \gamma
+  \intertext{Divide by $\cos^2\gamma (\neq 0)$}
+  1 + \tan^2 \gamma = \sec^2 \gamma
+\end{align}
+
+\section{Radians}
+include fig 5
+
+tabularize tab 1
+
+fig 6
+
+tabularize tab 2
+
+\section{Amplitude and Period}
+\subsection{Period}
+A period may be one full revolution ($2\pi$) around the unit circle, to bring
+you back to your starting point.
+\begin{align}
+  \sin(x+2\pi) &= \sin(x) \\
+  \sin(x+2 n \pi) &= \sin(x) : n \in mathbb{Z}\\
+  \cos(x + 2\pi) &= \cos(x) \\
+  % fig 7
+  \intertext{Rotate by half revolution:}
+  \cos(\theta + \pi) &= -\cos(\theta) \\
+  \sin(\theta + \pi) &= -\sin(\theta)
+  \intertext{This implies the tangent has period $\pi$.}
+  \because \tan(\theta + \pi)
+    &= \frac{\sin(\theta+\pi)}{\cos(\theta+\pi)} \\
+    &= \frac{-\sin(\theta)}{-\cos(\theta)} \\
+    &= \frac{\sin(\theta)}{\cos(\theta)} \\
+    &= \tan(\theta) \\
+  % fig 8
+  \intertext{Rotate by quarter revolution:}
+  \sin(\theta + \frac{\pi}{2}) &= x = \cos(\theta) \\
+  \cos(\theta + \frac{\pi}{2}) &= -y = -\sin(\theta)
+  \intertext{Reflections}
+  %fig 9
+  \cos(-\theta) &= \cos(\theta) \\
+  \sin(-\theta) &= -y = -\sin(\theta)
+\end{align}
+
+\subsection{Some examples:}
+\begin{align}
+  \sin(\theta - \frac{\pi}{2}) &= \sin(- (\frac{\pi}{2} -\theta) ) \
+  &= -\sin(\frac{\pi}{2}-\theta) \\
+  &= -\sin(-\theta + \frac{\pi}{2}) \\
+  &= -\cos(-\theta)\\
+  &= -\cos(\theta)
+\end{align}
+
+%fig 10
+%\begin{align}
+%  \sin(2x) &= \sin(x + x) \\
+%  &= \sin(x)\cos(x) + \cos(x)\sin(x) \\
+%  &= 2\sin(x)\cos(x) \\
+%  \cos(2x) &= \cos(x+x) \\
+%    &= \cos(x)\cos(x) -\sin(x)\sin(x) \\
+%    &= \cos^2(x) - \sin^2(x) \\
+%    &= 1-2\sin^2(x) \label{trig1} \\
+%    &= 2\cos^2(x)-1 \label{trig2} \\
+%  (1) \cos(\alpha) &= 1-2\sin^2(\frac{\alpha}{2}) \\
+%  &= \sin^2(\frac{\alpha}{2}) = \cos(\frac) \\ %TODO LOOK ME UP
+%  (2) %TODO: look me up\\
+%  \intertext{Using double angle identities:}
+%  \sin(x) &= \frac{2\tan(x/2)}{1+tan^2(x/2)} \\
+%  \cos(x) &= \frac{1-\tan^2(x/2)}{1+\tan^2(x/2)}
+%\end{align}
+
+\subsection{Examples:}
+%\begin{align}
+%  f(x) &= 5\cos(x)-12\sin(x)
+%  \intertext{Rewrite}
+%  f(x) &= A\cos(x\beta) \\
+%  \intertext(Solve)
+%  f(x) &= 15 = A\cos(x\beta) \\
+%  \intertext{Need a point on the unit circle, so we scale to fit to r=1. To do
+%  this, we divide and multiply by appropriate numbers}
+%  f(x) &= \sqrt{5^2+(-12)^2} \left(\frac{5}{\sqrt{5^2+(-12)^2}} \cos x
+%    - \frac{12}{\sqrt{5^2+(-12)^2)}}\sin x\right) \\
+%  % TODO: fig 11
+%  &= 13\left( \cos\beta\cos x - \sin\beta\sin x \right) \\
+%  &= 13\cos(\beta +x )
+%  \intertext{Solve}
+%    f(x) &= 13\cos(\beta+x) = 15 \\
+%    \cos(\beta +x) &= \frac{15}{13} > 1 \\
+%    & \therefore \quad \text{no solutions}
+%\end{align}
+
+%\begin{align}
+%  \intertext{Find exact value of}
+%  \cos(\frac{5\pi}{24}) & \\
+%  \frac{5\pi}{24} &= \frac{1}{2}\left(\frac{\pi}{4}+\frac{\pi}{6}\right) \\
+%  \cos^2(\frac{5\pi}{24}) &= \cos^2\left(\frac{1}{2}\left(\frac{\pi}{4}+\frac{\pi}{6}\right)\right) \\
+%  &= \frac{1}{2}\left( 1 + \cos(\pi/4)\cos(\pi/6) - \sin(\pi/4)\sin(\pi/6) \right) \\
+%  \cos^2(\frac{5\pi}{24}) &= \frac{1}{2} ( 1 + \sqrt{2}/2 \sqrt{3}/2 - \sqrt{2}/2\sqrt{1}{2})
+%\end{align}
+%
