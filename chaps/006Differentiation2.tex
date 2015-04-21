@@ -1,2 +1,123 @@
 \chapter{More Differentiation}
-TODO: Write me.
+\section{Differentiability}
+Differentiability refers to the ability for a function to be differentiated.
+Suppose we have a function $f: D \to \mathbb{R}$
+\begin{itemize}
+  \item Critical point / stationary point
+  \begin{itemize}
+    \item Point in the domain where the derivative is zero, $f'(x) = 0$
+    \item Or a point in the domain there the derivative does not exist.
+    \item If $p$ is a critical point, $f(x)$ is called a critical or a
+    stationary value.
+  \end{itemize}
+  \item Inflection point
+  \begin{itemize}
+    \item Point in the domain where the concavity changes, that is from concave
+    up to concave down, or concave down to concave up.
+    \item Can be characterized if $f$ is twice differentiable, then an
+    inflection point, $f''(x) = 0$ if $p$ is an inflection point.
+    \item The set of all inflection points is contained within the set of points
+    with $f''(x) = 0$, which means not points where $f''(x) = 0$ are inflection
+    points.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Example 1}
+$  g: \mathbb{R} \to \mathbb{R}, g(x) = xe^{-x}$
+Need to find critical points and inflection points:
+Critical points:
+\begin{align}
+  g'(x) &= e^{-x} + x(-1)^{-x} \\
+  &= (1-x)e^{-x} \\
+  &= 0 \quad \text{iff} x=1
+\end{align}
+
+Inflection points:
+\begin{align}
+  g''(x) &= -e^{-x} + (1-x)(-1)e^{-x} \\
+    &= (x-2)e^{-x}
+  \intertext{Candidate point: $x=2$. Test if concavity changes:}
+  g''(x) &< 0 \quad \text{for } \quad x < 2 \\
+  g''(x) &> 0 \quad \text{for } \quad x < 2
+\end{align}
+
+If $x=2$ concavity changes so $x=2$ is indeed inflection point.
+
+\subsection{Example 2}
+$ h: \mathbb{R} \to \mathbb{R}, h(x) = |x|e^{-x} $
+Need to find critical points and inflection points:
+Critical points:
+\begin{align}
+  \intertext{for $x > 0$}
+  h(x) &= xe^{-x} \\
+  h'(x)
+    &= (1-x)e^{-x} \\
+    &= 0 \quad \text{iff} x=1
+  \intertext{for $x < 0$}
+  h(x) &= -xe^{-x} \\
+  h'(x)
+    &= -e^{-x}-x(-1)e^{-x} \\
+    &= -e^{-x}(1-x) \\
+    &\neq 0 \quad \text{for} x < 0
+  \intertext{need to do limit test for differentiability:}
+  x = 0: & \lim_{k \to 0^+} \frac{h(k)-h(0)}{k} \\
+         & \lim_{k \to 0^+} \frac{ke^{-k} -0}{k} \\
+         & \lim_{k \to 0^+} e^{-k} = 1
+  x = 0: & \lim_{k \to 0^-} \frac{-ke^{-k}-0}{k} \\
+         &= -1 \\
+  \intertext{so $h'(0)$ does not exist, this is a second critical point, first
+  at $x=1$ second $x=0$ where derivative does not exist}.
+\end{align}
+
+Inflection points:
+\begin{align}
+  x > 0: h(x) &= xe^{-x} \\
+  h''(x) &=  (x-2)e^{-x} \\
+  &= 0 \quad \text{iff} \quad x = 2 \\
+  x > 2: h''(x) > 0 \\
+  x < 2: h''(x) < 0 \\
+  x < 0: h(x) &= -xe^{-x} \\
+        h''(x) &= -(x-2)e^{-x} \neq 0 \\
+  x = 0: \text{know} 0 < x < 2 \\
+  h''(x) &= (x-2)e^{-x} \\
+\end{align}
+Concavity changes when cross $x=0$, so $x=0$ \emph{is} an inflection point.
+
+Two inflection points, $x=2$ and $x=0$ second.
+
+%TODO: include a plot of h(x) = |x|e^{-x}
+
+\section{Local extrema}
+Critical points are useful for determining the local maxima and local minima.
+The first derivative test can be used to find local maxima and local minima. It
+states: \\
+If $f'(p) = 0$, then $f$ has a local extremum (either max or minimum) if $f'(p)$
+changes sign when you cross critical point.
+
+If $f'$ changes from positive to negative, then this corresponds with a local
+maximum. \\
+If $f'$ changes from negative to positive, then this corresponds with a local
+minimum.
+
+The second derivative test can be used to find local extrema. It state: \\
+If $f'(p) = 0$, AND $f''(p) > 0$ then local minimum. \\
+If $f'(p) = 0$, AND $f''(p) < 0$ then local maximum.
+
+Often we are not concerned with local extrema, but sometimes we are interested
+in global extrema. For this, we use the Extreme Value Theorem.
+
+\section{Extreme Value Theorem}
+Given $f: D \to \mathbb{R}$ which is continuous on $[a,b] \in D$, then $f$ has a
+global maximum and global minimum for at least one point in the interval.
+
+In other words, we know there exists points $x_1$ and $x_2$ in the interval with
+$a \leq x_1 \leq b$ and $a \leq x_2 \leq b$ such that
+$f(x_1) \leq f(x) \leq f(x_2)$ for all $a \leq x \leq b$.
+
+\subsection{Example}
+$f(x) = \frac{1}{x}$ on $(0, +\infty)$...
+
+%TODO include plot of f(x) = 1/x from 0 to 100
+
+Has no global max and min on $(0, \infty)$. Interval does not contain its
+endpoints.
