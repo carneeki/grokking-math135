@@ -121,3 +121,120 @@ $f(x) = \frac{1}{x}$ on $(0, +\infty)$...
 
 Has no global max and min on $(0, \infty)$. Interval does not contain its
 endpoints.
+
+\section{Optimisation}
+On a closed and bounded interval $[a,b]$, a continuous function will necessarily
+reach a maximum and minimum. The question is, how do we find these?
+
+We need to evaluate the boundary points separately to the interval between the
+boundaries. A strategy for functions such as $f:[a,b] \to \mathbb{R}$ that are
+continuous on $[a,b]$, we can apply the extreme value theorem by
+\begin{enumerate}
+  \item find critical points between the interval $(a,b)$ and determine whether
+  they are local extrema (by first and/or second derivative tests).
+  \item evaluate the function at the boundary points, $f(a)$ and $f(b)$. This
+  will \emph{generally} give a finite list (which is hopefully small).
+  \item Compare the values at critical points with boundary points, and pick the
+  largest and smallest values.
+\end{enumerate}
+
+\subsection{Example 1}
+Find the global extrema for $f(x) = x+1$ on the interval $[1,2]$.
+\begin{enumerate}
+  \item Critical points:
+  $f'(x) = 1 \neq 0$ this means there are NO critical points.
+  \item At the end points: \\
+  $f(1) = 1 + 1 = 2$ \\
+  $f(2) = 2 + 1 = 3$ \\
+  \item Compare:
+  Two is smaller than three so $1,2$ is global min, while $2,3$ is global max
+\end{enumerate}
+
+\subsection{Example 2}
+$f(x) = x^2 - 2|x|$ on $[-3,4]$.
+\begin{enumerate}
+  \item $f$ is continuous. This tells us there \emph{is} a max and min.
+  \item Critical points: \\
+  Because of the $|x|$ portion, $f$ is not differentiable at the origin, so
+  $x=0$ is one critical point. \\
+  $x>0 : f(x) = x^2 - 2x$ \\
+  So $f'(x) = 2x-2 = 2(x-1)$ \\
+  $x=1$ is a critical point. \\
+  $x < 0: f(x) = x^2 -2(-x) = x^2 + 2x$ \\
+  $x=-1$ is a critical point. \\
+  \item Evaluate boundaries:
+  $f(-3) = (-3)^2 -2|-3| = 9-6 = 3$ \\
+  $f(4) = 4^2 - 2|4| = 16 = 8$ \\
+  \item Evaluate value at critical points:
+  $f(-1) = (-1)^2 -2|-1| = -1$ \\
+  $f(0) = 0$ \\
+  $f(1) = (1)^2 -2|1| = -1$ \\
+  \item Compare values: 8 is largest and -1 is smallest, so there are two global
+  minima and one global maxima.
+\end{enumerate}
+
+\section{Unbounded Intervals}
+Sometimes we need to find a global maximum on an unbounded interval, which means
+the extreme value theorem may no longer be usable. We can still investigate it
+using a tactic as follows.
+
+For $f: (a,b) \to \mathbb{R}$ continuous on $(a,b)$.
+\begin{enumerate}
+  \item Find critical points. \emph{Usually} there are only a finite number of
+  critical points, and we can find their corresponding values.
+  \item Find out what is happening when $x$ approaches the boundary points... \\
+  $\lim_{x \to a^+} f(x) = \ldots$ \\
+  $\lim_{x \to b^-} f(x) = \ldots$ \\
+  Similarly, for
+  $f:[a,+\infty) \to \mathbb{R}$\\
+  $f:(a,+\infty) \to \mathbb{R}$\\
+\end{enumerate}
+
+\subsection{Example 1}
+Find the global extrema (if they exist) for the function
+$f(x) = x - \log(x)$ on $(0,+\infty)$.
+
+\begin{enumerate}
+  \item Find critical points inside the interval
+  $f'(x) = 1 - \frac{1}{x}$. \\
+  $f'(x) = 0$ iff $x=1$. $\to$ critical point \\
+  \item Find near critical points: \\
+  $\lim_{x \to 0^+} f(x) = \lim_{x \to 0^+} (x - \log(x)) = +\infty$ \\
+  $\lim_{x \to \infty} f(x) = \lim_{x \to \infty} (x - \log(x)) = \infty - \infty$
+  which is undetermined. We can convert this function however into something evaluatable
+  $\lim_{x \to \infty} \log(e^{x - \log(x)})$ \\
+  $\lim_{x \to \infty} \log(\frac{e^x}{x})$ \\
+  Now apply l'Hopital... \\
+  $\lim_{x \to \infty} \frac{e^x}{x} = \lim_{x \to \infty} \frac{e^x}{1} = +\infty$\\
+  This tells us that the point $x=1$ is a global minimum while the function
+  tends to $\infty$ near both boundaries.
+\end{enumerate}
+
+\section{Newton's Method}
+Using Newton's Method\footnote{Newton's Method: fuck yeah!} we can estimate the
+value of a function by ...
+
+Using the IVT for constant functions, we can find out whether roots exist,
+$f(x)=0$. This establishes the existance of roots, but it is not necessarily
+very efficient.
+
+If $f: D \to \mathbb{R}$ is differentiable, we can find a point in $D$ which is
+a root of the function, $x \in D | f(x) = 0$.
+
+\begin{enumerate}
+  \item Start with a point, $x_0 \in D$, for which $f'(x) \neq 0$.
+  \item Tangent line at $x_0$: \\
+  $y - f(x_0) = f'(x_0)(x-x_0)$ \\
+  Find $x_1$ such that $y=0$: \\
+  $0-f(x_0) = f'(x_0)(x_1 - x_0)$ \\
+  $x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}$ \\
+  Tangent line at $x_1$, ...
+  $x_2 = x_1 - \frac{f(x_1)}{f'(x_1)}$ \\
+\end{enumerate}
+In general, to find the next estimate on the previous estimate:
+\begin{align}
+  x_{n+1} = x_n - \frac{f(x_n)}{f(x_n)}
+\end{align}
+
+This converges to the fairly accurate and precise answer very quickly and so
+only a few iterations are required.
