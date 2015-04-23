@@ -5,6 +5,9 @@ function gensha {
 
 function writemath {
   touch $PLOTNAME.m
+  echo "(* ************************************************************************** *)" >> $PLOTNAME.m
+  echo "(* plot command: $1 *)" >> $PLOTNAME.m
+  echo "(* ************************************************************************** *)" >> $PLOTNAME.m
   echo "SetOptions[Plot,DisplayFunction->Identity]" >> $PLOTNAME.m
   echo "a=$1" >> $PLOTNAME.m
   echo "Export[\"$PLOTNAME\",a]" >> $PLOTNAME.m
@@ -35,8 +38,12 @@ case $1 in
   plot)
     plot $2
     ;;
+  plotloud)
+    plot $2
+    echo $PLOTNAME
+    ;;
   *)
-    echo $"Usage: $0 {gensha <function> | plot <plot function>}"
+    echo $"Usage: $0 {gensha <function> | plot <plot function> | plotloud <plot function>}"
     exit 1
     ;;
 esac
