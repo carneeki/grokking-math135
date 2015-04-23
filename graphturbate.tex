@@ -1,0 +1,23 @@
+\newcommand{\graphturbate}[2]
+{
+\def \plotquote{"#1"}
+\immediate\write18{./graphturbate.sh plotloud \plotquote > '\jobname.tmp'}
+
+\newread\myinput
+\openin\myinput=\jobname.tmp
+\bgroup
+  \endlinechar=-1
+  \read\myinput to \localplotname
+  \global\let\plotname\localplotname
+\egroup
+\closein\myinput
+
+\immediate\write18{rm -f '\jobname.tmp'}
+
+\begin{figure}[htb]
+  \begin{centering}
+    \includegraphics[width=0.8\linewidth]{\plotname}
+    \caption{#2}
+  \end{centering}
+\end{figure}
+}
