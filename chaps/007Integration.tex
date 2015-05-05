@@ -536,3 +536,50 @@ Anti-derivatives of $\frac{\log(x)}{x}$.
   \int \sin^2 x dx &= \frac{x - \sin x \cos x}{2} + C \\
   &= \frac{1}{2}x - \frac{1}{4}\sin(2x) + C
 \end{align}
+
+\section{Second Fundamental Theorem of Calculus}
+Let $f$ be a continuous function on $[a,b]$. The function \\
+$F(x) = \int_a^x f(t) dt$ \\
+for $a \leq b$. \\
+$F$ is differentiable, and $F'(x) = f(x)$. \\
+\ldots \\
+\begin{align}
+  \frac{1}{h}(F(x+h) - F(x))
+  &= \frac{1}{h} \int_a^{x+h} f(t) dt - \int_a^{x} f(t) dt \\
+  &= \frac{1}{h} \int_a^{x+h} f(t) dt \stackrel{h \to 0}{\to} f(x)
+\end{align}
+
+\subsection{Example 1 - SFTC}
+\begin{align}
+  \intertext{If}
+  F(x) &= \int_1^x \ln t dt \\
+  \intertext{Find}
+  \frac{d}{dx} F(x^2) & \\
+  F(x^2) &= \int_1^{x^2} \ln t dt \\
+  \intertext{We know that $F'(x)=\ln x$}
+  F(x^2) &= F(s(x)), \quad \text{with} \quad s(x) = x^2
+  \intertext{No apply chain rule}
+  \frac{d}{dx}(F(s(x))) &= F'(s(x))s'(x) \\
+  &= F'(x^2) 2x \\
+  &= \ln(x^2) 2x \\
+  &= 4x \ln x
+\end{align}
+
+\subsection{Example 2 - SFTC}
+\begin{align}
+  \int \frac{1}{x^2 +6x +14} dx &
+  \Delta &= 36 -4*14 < 0 \\
+  \intertext{therefor no real roots. This means we cannot factorize this
+  quadratic into two llinear factors. To handle this, we use completing the
+  square.}
+  \text{"completing the square"} \quad \leftrightarrow \quad 1+u^2 \\
+  x^2 +6x +14 &= (x+3)^2 +5 \\
+  &= 5\left(1 + \frac{x+3}{\sqrt{5}}^2\right) \\
+  &= \frac{1}{5} \int \frac{1}{\frac{x+3}{\sqrt{5}}^2} dx
+  &= \frac{1}{\sqrt{5}} \int\frac{1}{1+u^2} du
+  \intertext{Let}
+  u&= \frac{x+3}{\sqrt{5}} \\
+  du &= \frac{1}{\sqrt{5}} dx \\
+  \frac{1}{\sqrt{5}} \int\frac{1}{1+u^2} du
+  &= \frac{1}{\sqrt{5}} \arctan u +C
+\end{align}
