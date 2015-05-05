@@ -583,3 +583,123 @@ $F$ is differentiable, and $F'(x) = f(x)$. \\
   \frac{1}{\sqrt{5}} \int\frac{1}{1+u^2} du
   &= \frac{1}{\sqrt{5}} \arctan u +C
 \end{align}
+
+\subsection{Example 3 - SFTC}
+This is the second example that utilises completing the square.
+\begin{align}
+  \int \frac{3}{\sqrt{2x-x^2}} dx & \\
+  2x-x^2 &= -(x -1)^2 +1 \\
+  &= -(x^2 -2x +1) +1 \\
+  &= -x^2 +2x \\
+  3 \int \frac{1}{\sqrt{1- (x-x^2)}} dx & \\
+  \intertext{Let}
+  v &= x-1 \\
+  dv &= dx \\
+  \intertext{Such that}
+  3 \int \frac{1}{\sqrt{1- (x-x^2)}} dx & \\
+    &= 3 \int \frac{1}{\sqrt{1-v^2}} dv \\
+    &= 3 \arcsin v + C \\
+    &= 3 \arcsin(x-1) + C
+\end{align}
+
+\subsection{Example 1 - Geometric Applications}
+Finding area of ellipse (pretending we do not know the formula). Background:
+the relation for an ellipse is given by: \\
+\begin{align}
+  \frac{x^2}{a^2} + \frac{y^2}{b^2} &= 1 \quad | \quad (a,b > 0) \\
+  \intertext{Rearranging}
+  y^2 &= b^2\left(1 - \frac{x^2}{a^2}\right) \\
+  y &= b \sqrt{1 - \frac{x^2}{a^2}} \\
+  \intertext{Let}
+  A &= \quad \text{area} \\
+  \intertext{Taking a quarter of the ellipse...}
+    &= 4 b \int_0^a \sqrt{1- \frac{x^2}{a^2}} dx
+  \intertext{If}
+  x &= a \sin \theta \\
+  dx &= a \cos \theta d\theta
+  \intertext{such that}
+  4 b \int_0^a \sqrt{1- \frac{x^2}{a^2}} dx
+  &= 4ba \int_0^a \sqrt{1 - \sin^2 \theta} \cos \theta d\theta \\
+  &= 4ba \int_0^{\pi/2} \sqrt{1 - \sin^2 \theta} \cos \theta d\theta
+  &= 4ba \int_0^{\pi/2} \left| \cos\theta \right| \cos \theta d\theta \\
+  &= 4ba \int_0^{\pi/2} \cos^2\theta d\theta \\
+  \intertext{Solve by integration by parts}
+  &= 4ba \frac{\pi}{4} \\
+  &= \pi ab
+\end{align}
+
+\subsection{Example 2 - Geometric Applications}
+Calculate the area of a circular segment.
+\begin{align}
+  \intertext{Let}
+  A &= \quad \text{area}
+  \intertext{Split area into two parts, a right angle triangle, and the derpy
+  bit. The relation for a circle is given by}
+  x^2 + y^2 &= R^2 \\
+  y &= \sqrt{R^2 - x^2} \\
+  \intertext{So}
+  A &= \text{triangle} + \text{derp} \\
+  &= \int_0^{R\cos\theta} \ldots + \int_{R\cos\theta}^{R} \ldots \\
+  &= \int_0^{R\cos\theta} \ldots + \frac{1}{2}R^2\cos\theta\sin\theta \\
+  \intertext{Substitute}
+  x &= R \sin\phi \\
+  \intertext{or}
+  x &= R \cos\psi \\
+  \intertext{$\cos$ is going to be more useful}
+  dx &= -R \sin\psi d\psi \\
+  \intertext{So derpy bit becomes}
+  -R\int_{\theta}^{0} \sqrt{R^2-R^2\cos\psi}\sin\psi d\psi &\\
+  &= R\int_{0}^{\theta} \left| \sin \psi \right| \sin \psi d \psi \\
+  &= R^2 \int_{0}^{\theta} \sin^2 \psi d\psi \\
+  &= R^2 \int_0^\theta \left(\frac{1-\cos 2\psi}{2}) d\psi \\
+  &= R^2 \left \int_0^\theta \frac{1}{2}\d\psi - \frac{1}{2} \int_0^\theta \cos2\psi d\psi \right) \\
+  &= R^2 \left(\Eval{\frac{1}{2}\theta - \frac{1}{4} \sin2\psi}{0}{0} \right)
+  \intertext{Smoosh together both parts}
+  A &= \frac{1}{2}R^2\cos\theta\sin\theta + \frac{1}{2}R^2\theta -\frac{1}{4}R^2\sin^2\theta
+\end{align}
+
+\subsection{Example 3 - Geometric Applications}
+This is a common exam question.
+
+Find the area enclosed by graph of function $f(x) = 1+\ln x$ where horizontal
+line $y=1$ and vertical lines $x=1$ and $x = 5$.
+
+\begin{align}
+  \intertext{Let}
+  A &= \text{area desired} \\
+    &= \text{total area under curve} - \text{area under $y=1$} \\
+    &= \int_1^5 (1 + \ln x) dx - \int_1^5 1 dx \\
+    &= \int_1^5 (1 + \ln x -1) dx \\
+  \intertext{Integrate by parts}
+    &= \int_1^5 1 \ln x dx  \\
+    &= \Eval{x \ln x}{1}{5} - \int_1^5 x d(\ln x) \\
+    &= 5 \ln 5 - \int_1^5 dx \\
+    &= 5 \ln 5 - 4
+\end{align}
+
+More generally - you want to find the total area beneath the target function
+and subtract the lower bounding function to get the target area.
+
+\subsection{Example 4 - Integrating Additional Rational Functions}
+Partial fractions.
+
+\begin{align}
+  \int \frac{1}{x^2 -7x +10} dx &
+  \intertext{Completing the square, gives a negative number...}
+  x^2 -7x +10 &= (x-\frac{7}{2})^2 - \frac{49}{2} +10 \\
+  \intertext{We can rewrite it as}
+  \frac{1}{(x-2)(x-5)}dx &
+  &= \frac{A}{x-2} + \frac{B}{x-5} \\
+  &= \frac{A(x-5) + B(x-2)}{(x-2)(x-5)} \\
+  \intertext{So find (must hold for ALL x)}
+  A(x-5) + B(x-2) &= 1 \\
+  (A+B)x -(5A +2B) &= 1 \\
+  \intertext{Create a system of linear equations (to be covered next week)}
+  A+B &= 0 \\
+  5A+2B &= -1 \\
+  \intertext{Simpler way:}
+  x &= 2: -3A = 1 \to A = -\frac{1}{3} \\
+  x &= 5: 3B = 1 \to B = \frac{1}{3} \\
+  \int \frac{1}{(x-2)(x-5)} dx &= \int \frac{-1/3}{x-2} + \frac{1/3}{x-5} dx \\
+  &= -\frac{1}{3} \ln |x-2| + \frac{1}{3}\ln|x-5| +C
+\end{align}
