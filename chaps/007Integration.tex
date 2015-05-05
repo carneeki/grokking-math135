@@ -439,19 +439,100 @@ Anti-derivatives of $\frac{\log(x)}{x}$.
   \int_a^b (u(x)v(x))' dx &= \int_a^b u'(x)v(x) dx + \int_a^b u(x)v'(x) dx \\
   u(x)v(x)|_a^b &= \ldots
   \intertext{Usually written as}
-  \int_a^b &= u'(x)v(x) dx &= (u(b)v(b) - u(a)v(a)) - \int_a^b u(x)v'(x) dx \\
+  \int_a^b u'(x)v(x) dx &= (u(b)v(b) - u(a)v(a)) - \int_a^b u(x)v'(x) dx \\
   \intertext{sometimes}
   u &= u(x) \\
   du &= u'(x)dx \\
   \int_a^b v du &= uv|_a^b - \int_a^b u dv
 \end{align}
 
-\subsection{Examples}
+\subsection{Example 1 - Int By Parts}
 \begin{align}
   \int_0^{\pi/2} x\sin(x) dx & \\
   &= \int_0^{\pi/2} x d(-\cos x) \\
   &= -x \cos(x)|_0^{\pi/2} - \int_0^{\pi/2}(-\cos x) dx \\
   &= 0 + \int_0^{\pi/2} \cos x dx \\
-  &= \sin x |_0^{\pi/2}
+  &= \Eval{\sin x}{0}{\pi/2} \\
   &= 1
+\end{align}
+
+\subsection{Example 2 - Int By Parts}
+\begin{align}
+  \int_0^{1} x\arctan x dx & \\
+  &= \int_0^1 (\frac{1}{2}x^2)' \arctan x dx \\
+  \intertext{Let}
+  u(x) &= \arctan x \\
+  u'(x) &= \frac{1}{1+x^2} \\
+  v(x) &= \frac{1}{2}x^2 \\
+  v'(x) &= x
+  \intertext{Such that}
+  \int_0^{1} x\arctan x dx \\
+  &= \Eval{\frac{1}{2}x^2 \arctan x}{0}{1} - \int_0^1 \frac{1}{2}x^2 \frac{1}{1+x^2} dx \\
+  &= \frac{1}{2}\arctan x 1 - 0 - \frac{1}{2}\int_0^1 \frac{x^2}{1+x^2} dx \\
+  &= \frac{\pi}{8} -\frac{1}{2}\int_0^1 \frac{x^2}{1+x^2} dx \\
+  &= \int_0^1 \frac{x^2}{1+x^2} dx \\
+  &= \int_0^1 \frac{x^2 +1 -1}{1+x^2} dx \\
+  &= \int_0^1 \left(1 - \frac{1}{1+x^2}\right) dx \\
+  &= 1- \Eval{\arctan x}{0}{1} \\
+  &= 1 - \left(\arctan1 - \arctan0\right) \\
+  &= 1 - \frac{\pi}{4}
+  \intertext{Hence}
+  \int_0^1 x \arctan x dx &= \frac{\pi}{8} - \frac{1}{2}(1-\frac{\pi}{4}) \\
+  &= \frac{\pi}{4}- \frac{1}{2}
+\end{align}
+
+\subsection{Example 3 - Int By Parts}
+\begin{align}
+  \int_0^1 1 \arctan x dx &
+  \intertext{Let}
+  u(x) &=\arctan x \\
+  u'(x) &= \frac{1}{1+x^2} \\
+  v(x) &= x \\
+  v'(x) &= 1
+  \intertext{Such that}
+  \int_0^1 1 \arctan x dx &= \Eval{x \arctan x}{0}{1} - \int_0^1\frac{x}{1+x^2} dx \\
+  &= \frac{\pi}{4} - \int_0^1 \frac{x}{1+x^2} dx \\
+  \intertext{Use substitution, let}
+  y&= x^2 \\
+  dy&= 2xdx \\
+  \intertext{such that}
+  \frac{\pi}{4} - \int_0^1 \frac{x}{1+x^2} dx \\
+  &= \frac{\pi}{4} - \frac{1}{2} \int_0^1 \frac{1}{1+y} dy \\
+  &= \frac{\pi}{4} - \Eval{\frac{1}{2} \ln |1+y|}{0}{1} \\
+  &= \frac{\pi}{4} - \frac{1}{2} \ln2 + \frac{1}{2} \ln 1 \\
+  &= \frac{\pi}{4} - \frac{1}{2} \ln 2
+\end{align}
+
+\subsection{Example 4 - Int By Parts}
+\begin{align}
+  \int_1^e 1\cdot\ln x dx &
+  &= \text{left as exercise}
+\end{align}
+
+\subsection{Example 5 - Int By Parts}
+\begin{align}
+  \int e^x \sin x dx &
+  &= \int \sin(x) d(e^x) \\
+  &= \sin(x)e^x - \int e^x d(\sin x) \\
+  &= \sin(x)e^x - \int e^x \cos x dx \\
+  &= \sin(x)e^x - \int \cos x d(e^x) \\
+  &= \sin(x)e^x - \left(e^x\cos x -\int e^x d(\cos x) \right) \\
+  &= (\sin(x) - \cos(x))e^x - \int \sin(x)e^x dx \\
+  \intertext{Move the integral to the other side}
+  2 \int e^x \sin(x) dx &= \left( \sin x - \cos x \right)e^x \\
+  \int e^x \sin(x) dx &= \frac{\left( \sin x - \cos x \right)e^x}{2} + C
+\end{align}
+
+\subsection{Example 6 - Int By Parts}
+\begin{align}
+  \int \sin^2 x dx &
+  &= \int \sin x \sin x dx \\
+  &= \int \sin x d(-\cos x) \\
+  &= -\sin x \cos x - \int(-\cos x) d(\sin x) \\
+  &= -\sin x \cos x + \int(\cos^2x) dx \\
+  &= -\sin x \cos x + \int (1-\sin^2x) dx \\
+  &= x- \sin x \cos x - \int \sin^2 x dx \\
+  2 \int \sin^2 x dx &= x - \sin x \cos x \\
+  \int \sin^2 x dx &= \frac{x - \sin x \cos x}{2} + C \\
+  &= \frac{1}{2}x - \frac{1}{4}\sin(2x) + C
 \end{align}
