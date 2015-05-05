@@ -212,14 +212,12 @@ $f(x) = x - \log(x)$ on $(0,+\infty)$.
 
 \section{Newton's Method}
 Using Newton's Method\footnote{Newton's Method: fuck yeah!} we can estimate the
-value of a function by ...
+value of a function relatively quickly and accurately. By using the IVT for
+constant functions, we can find out whether roots exist, $f(x)=0$. This
+establishes the existance of roots, but it is not necessarily very efficient.
 
-Using the IVT for constant functions, we can find out whether roots exist,
-$f(x)=0$. This establishes the existance of roots, but it is not necessarily
-very efficient.
-
-If $f: D \to \mathbb{R}$ is differentiable, we can find a point in $D$ which is
-a root of the function, $x \in D | f(x) = 0$.
+\noindent If $f: D \to \mathbb{R}$ is differentiable, we can find a point in $D$
+which is a root of the function, $x \in D | f(x) = 0$.
 
 \begin{enumerate}
   \item Start with a point, $x_0 \in D$, for which $f'(x) \neq 0$.
@@ -235,6 +233,104 @@ In general, to find the next estimate on the previous estimate:
 \begin{align}
   x_{n+1} = x_n - \frac{f(x_n)}{f(x_n)}
 \end{align}
+This converges to be fairly accurate and precise answer very quickly
+and so only a few iterations are required.
 
-This converges to be fairly accurate and precise answer very quickly and so only
-a few iterations are required.
+\subsection{Example Global Max/Min}
+Given function $f(x) = e^x+\cos(x) | 0 \leq x \leq \pi$.
+Find the global max and global min:
+
+$f$ is continuous at all its points between 0 and $\pi$, so the extreme value
+theorem can be applied, and is also differentiable.
+
+\begin{enumerate}
+  \item First, look for critical points.
+  $f'(x) = e^x - \sin(x)$ need to test $ 0 < x < \pi$.
+  $f'(x) = 0$ iff $e^x = \sin(x)$. Note $e^x > 1$ and $\sin(x) \leq 1$. Because
+  the equality can never be satisfied. This means \emph{there are no critical
+  points}.
+  \item Check boundaries: \\
+  $f(0) = e^0 + \cos(0) = 1 + 1 = 2$ \\
+  $f(\pi) = e^\pi + \cos(\pi) = e^\pi - 1$ \\
+  \item Compare:
+  $e^\pi -1$ is larger, therefore global max.
+  $2$ is smaller, therefore global min.
+\end{enumerate}
+
+\section{Sketching graphs of Functions}
+
+Sketching graphs of functions consists of seven overall steps.
+\begin{enumerate}
+  \item Determine the domain
+  \item Determine whether the function is odd, even or neither
+  \item Determine roots
+  \item Determine asymptotes (horizontal \emph{and} vertical)
+  \item Determine critical points using first derivative test
+  \item Determine concavity /inflection using second derivative test
+  \item Tabulate all the information
+  \item Plot the graph
+\end{enumerate}
+
+\subsection{Example 1}
+$f(x) = e^{-x^2}$
+\begin{enumerate}
+  \item Determine domain:\\
+  $dom(f) = \mathbb{R}$
+  \item Determine whether function is odd, even or neither: \\
+  $f(x) \stackrel{?}{=} f(-x)$ is true, therefore function is even.
+  \item Determine roots: \\
+  $e^{-x^2} > 0$, so no roots.
+  \item Determine asymptotes:
+  \begin{enumerate}
+    \item vertical: none.
+    \item horizontal: \\
+    For large $+x$: $\lim_{x \to +\infty} e^{-x^2} = 0$ \\
+    For large $-x$: $\lim_{x \to -\infty} e^{-x^2} = 0$ \\
+    $y=0$ is horizontal asymptote.
+  \end{enumerate}
+  \item Determine critical points using first derivative test: \\
+  \begin{align}
+    f'(x) &= \left(e^{-x^2}\right)' \\
+          &= \left.e^y\right|_{y=x^2} \cdot (-2x) \\
+          &= -2xe^{-x^2} \\
+        0 &\stackrel{?}{=} -2xe^{-x^2} \\
+          &= \quad \text{iff} \quad x=0
+  \end{align}
+  $f'(x) < 0$ iff $x > 0$ therefore decreasing. \\
+  $f'(x) > 0$ iff $x < 0$ therefore increasing.
+  \item Determine concavity / inflection with second derivative test: \\
+  \begin{align}
+    f''(x) &= -2e^{x^2} + (-2x)(-2xe^{-x^2}) \\
+           &= 2(2x^2 -1)e^{-x^2} \\
+          0&\stackrel{?}{=} \quad \text{iff} \quad (2x^2 - 1) = 0
+          & \quad \text{iff} \quad (x \pm \frac{\sqrt{2}}{2})
+  \end{align}
+  \begin{align}
+    f''(x) & > 0 & \quad \text{iff } 2x^-2 \quad & \quad > 0 \\
+           &     & \quad \text{iff } x^2   \quad & \quad > \frac{1}{2} \\
+           &     & \quad \text{iff } x     \quad & \quad < -\frac{\sqrt{2}}{2}
+                                            \text{or} x > \frac{\sqrt{2}}{2}
+  \end{align}
+  \begin{align}
+    f''(x) & < 0 & \quad \text{iff } 2x^-2 \quad & \quad < 0 \\
+           &     & \quad \text{iff } x^2   \quad & \quad < \frac{1}{2} \\
+           &     & \quad \text{iff } x     \quad & \quad < -\frac{\sqrt{2}}{2}
+                                            < x < \frac{\sqrt{2}}{2}
+  \end{align}
+  \item Tabulate
+
+  \begin{tabular}{ l | c c c }
+    x        & $\frac{\sqrt{2}}{2}$ & 0   & $\frac{\sqrt{2}}{2}$ \\
+    \hline
+    $f'(x)$  & + + +                & 0   & - - - \\
+    $f''(x)$ & + + 0                & --- & 0 + + \\
+    \hline \hline
+    $f$      & $\nearrow$ $e^{\frac{1}{2}}$ $\nearrow$ & | & $\searrow$ $e^{\frac{1}{2}}$ $\searrow$ \\
+  \end{tabular}
+  \item Plot!
+  \begin{figure}[!htb]
+    \includegraphics{img/bellcurve.png}
+    \caption{Generated in Mathematica with following code:
+      \texttt{Plot[E\^{}(-x\^{}2), \{x, -3, 3\}]}}
+  \end{figure}
+\end{enumerate}
