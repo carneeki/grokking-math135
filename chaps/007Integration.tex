@@ -651,7 +651,7 @@ Calculate the area of a circular segment.
   -R\int_{\theta}^{0} \sqrt{R^2-R^2\cos\psi}\sin\psi d\psi &\\
   &= R\int_{0}^{\theta} \left| \sin \psi \right| \sin \psi d \psi \\
   &= R^2 \int_{0}^{\theta} \sin^2 \psi d\psi \\
-  &= R^2 \int_0^\theta \left(\frac{1-\cos 2\psi}{2}) d\psi \\
+  &= R^2 \int_0^\theta \left(\frac{1-\cos 2\psi}{2}\right) d\psi \\
   &= R^2 \left \int_0^\theta \frac{1}{2}\d\psi - \frac{1}{2} \int_0^\theta \cos2\psi d\psi \right) \\
   &= R^2 \left(\Eval{\frac{1}{2}\theta - \frac{1}{4} \sin2\psi}{0}{0} \right)
   \intertext{Smoosh together both parts}
@@ -698,8 +698,51 @@ Partial fractions.
   A+B &= 0 \\
   5A+2B &= -1 \\
   \intertext{Simpler way:}
-  x &= 2: -3A = 1 \to A = -\frac{1}{3} \\
-  x &= 5: 3B = 1 \to B = \frac{1}{3} \\
+  x = 2: -&3A = 1 \to A = -\frac{1}{3} \\
+  x = 5:  &3B = 1 \to B = \frac{1}{3} \\
   \int \frac{1}{(x-2)(x-5)} dx &= \int \frac{-1/3}{x-2} + \frac{1/3}{x-5} dx \\
   &= -\frac{1}{3} \ln |x-2| + \frac{1}{3}\ln|x-5| +C
+\end{align}
+
+\section{Improper Integrals}
+So far we have been integrating continuous functions on a bounded interval,
+$[a,b]$. For many applications, this is too restrictive. One such example
+might be that the bounds are too restrictive:
+\begin{align}
+  \int_0^{+\infty} \frac{1}{1+x^2} dx & \\
+  &= \lim_{m \to +\infty} \int_0^m \frac{1}{1+x^2} dx \\
+  &= \lim_{m \to +\infty} \Eval{\arctan x}{0}{m} \\
+  &= \lim_{m \to +\infty} \arctan m \\
+  &= \frac{\pi}{2}
+\end{align}
+
+\begin{align}
+  \int_{-\infty}{+\infty} \frac{1}{1+x^2} dx & \\
+  &= \lim_{m \to \infty} \int_{-m}{m} \frac{1}{1+x^2} dx \\
+  &= \lim_{m \to \infty} (\arctan m - \arctan(-m)) \\
+  &= \frac{\pi}{2} - (-\frac{\pi}{2}) \\
+  &= \pi
+\end{align}
+
+Sometimes the end points are not defined:
+\begin{align}
+  \int_0^1 \ln x dx & \\
+  \intertext{This requires integrating from a point arbitrarily close to 0}
+  &= \lim_{\epsilon \to 0} \int_\epsilon^1 \ln x \dx \\
+  &= \lim_{\epsilon \to 0} \left(\Eval{x\ln x}{\epsilon}{1} - \Eval{x}{\epsilon}{1}\right) \\
+  &= \lim_{\epsilon \to 0} \left( -\epsilon \ln \epsilon - 1 + \epsilon) \\
+  &= \lim_{\epsilon \to 0} \epsilon \ln \epsilon \\
+  &= \lim_{\epsilon \to 0} \frac{\ln \epsilon}{\frac{1}{\epsilon}} \\
+  &= \lim_{\epsilon \to 0} \ldots \\
+  &= -\lim_{\epsilon \to 0} \epsilon \\
+  &= 0
+\end{align}
+
+
+Some have no antiderivative:
+\begin{align}
+  \int_0^{\infty} e^{-x^2} dx & \\
+  \intertext{Use a trick (from MATH235) where you calculate the square of the
+  integral.}
+  \int\int e^(-x^2+y^2) dxdy
 \end{align}
